@@ -13,6 +13,18 @@ function previewImagen(input) {
       reader.readAsDataURL(input.files[0]);
     }
 }
+
+$('#btnLogin').click(function validacionesLogin(e) {
+    var error = 0;
+    var correo = $('#correoLogin').val().trim();
+    var contrasena = $('#contrasenaLogin').val().trim();
+    !correo ? ($('#correoLogin').addClass('is-invalid'), error++) : $('#correoLogin').removeClass('is-invalid');
+    !contrasena ? ($('#contrasenaLogin').addClass('is-invalid'), error++) : $('#contrasenaLogin').removeClass('is-invalid');
+    if(error > 0) {
+        e.preventDefault();
+    }
+})
+
 $('#btnRegistro').click(function validacionesRegistro(e) {
     var error = 0;
     var nombre = $('#nombre').val().trim();
@@ -23,7 +35,6 @@ $('#btnRegistro').click(function validacionesRegistro(e) {
     var correo = $('#correo').val();
     var contrasena = $('#contrasena').val();
     var confirmarContrasena = $('#confirmarContrasena').val();
-
     !nombre ? ($('#nombre').addClass('is-invalid'), error++) : ($('#nombre').removeClass('is-invalid'));
     !apellidoPaterno ? ($('#apellidoPaterno').addClass('is-invalid'), error++) : ($('#apellidoPaterno').removeClass('is-invalid'));
     !apellidoMaterno ? ($('#apellidoMaterno').addClass('is-invalid'), error++) : ($('#apellidoMaterno').removeClass('is-invalid'));
@@ -32,7 +43,6 @@ $('#btnRegistro').click(function validacionesRegistro(e) {
     !correo ? ($('#correo').addClass('is-invalid'), error++) : ($('#correo').removeClass('is-invalid'));
     !contrasena ? ($('#contrasena').addClass('is-invalid'), error++) : ($('#contrasena').removeClass('is-invalid'));
     !confirmarContrasena ? ($('#confirmarContrasena').addClass('is-invalid'), error++) : confirmarContrasena != contrasena ? ($('#confirmarFeedback').text("Las contraseñas no coinciden"), $('#confirmarContrasena').addClass('is-invalid'), error++) : ($('#confirmarContrasena').removeClass('is-invalid'));
-
     if(error > 0) {
         e.preventDefault();
     }

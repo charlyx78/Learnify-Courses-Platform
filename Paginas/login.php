@@ -24,19 +24,24 @@
             </div>
         </div>
 
-        <div class="contenedor-formulario-login p-5">
+        <div class="contenedor-formulario p-5">
             <div class="contenido-formulario">
-
                 <div id="carruselLoginRegistro" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <h2 class="fw-bold mb-4">Inicia sesión</h2>
                             <form action="#" class="formulario-login" id="formLogin" method="POST">
-                                <label for="txtCorreoLogin">Correo electrónico</label>
-                                <input type="text" name="txtCorreoLogin" class="form-control mb-2">
-                                <label for="txtContrasenaLogin">Contraseña</label>
-                                <input type="password" name="txtContrasenaLogin" class="form-control mb-4">
-                                <input type="submit" name="btnLogin" class="btn btn-dark w-100 mb-4" id="" value="Iniciar sesión">
+                                <label for="correoLogin">Correo electrónico</label>
+                                <input type="text" name="correoLogin" id="correoLogin" class="form-control mb-2">
+                                <div id="correoFeedback" class="invalid-feedback mb-1">
+                                    Escriba un correo, por favor.
+                                </div> 
+                                <label for="contrasenaLogin">Contraseña</label>
+                                <input type="password" name="contrasenaLogin" id="contrasenaLogin" class="form-control">
+                                <div id="contrasenaFeedback" class="invalid-feedback">
+                                    Escriba su contraseña, por favor.
+                                </div> 
+                                <input type="submit" name="btnLogin" id="btnLogin" class="btn btn-dark w-100 mt-4 mb-4" id="" value="Iniciar sesión">
                             </form>
                             <div class="contenedor-login-a-registro d-flex justify-content-between mb-4">
                                 <p>¿Aún no tienes una cuenta?</p>

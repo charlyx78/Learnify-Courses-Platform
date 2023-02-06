@@ -20,7 +20,7 @@ label {
     right: 0;
 }
 /* LOGIN Y REGISTRO */
-.contenedor-bienvenida, .contenedor-formulario-login {
+.contenedor-bienvenida, .contenedor-formulario {
     height: 100vh;
 }
 .contenedor-bienvenida {
@@ -34,8 +34,9 @@ label {
 .contenido-bienvenida {
     color: var(--blanco);
 }
-.contenedor-formulario-login{
+.contenedor-formulario {
     width: 40vw;
+    overflow-y: scroll;
 }
 .slogan {
     text-align: right;
