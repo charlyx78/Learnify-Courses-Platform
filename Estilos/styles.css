@@ -47,10 +47,13 @@ label {
     align-items: center;
     border: 1px solid gray;
     border-style: dotted;
-    border-radius: 0.6em;
-    height: 20vh;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
 }
 .preview-imagen {
     padding: 1em;
-    max-height: 20vh;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
 }
