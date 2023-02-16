@@ -1,3 +1,53 @@
+<?php
+    session_start();
+    include("db.php");
+
+    if(isset($_POST["btnLogin"]))
+    {
+        $correo = $_POST['correoLogin'];
+        $contra = $_POST['contrasenaLogin'];
+
+        $query= "select * from usuarios where correo = '$correo' and contra = '$contra'";
+        $result= mysqli_query($con, $query);
+
+        if($result->num_rows > 0)
+        {
+            echo "<script type='text/javascript'> alert('Sesion Iniciada Correctamente')</script>";
+        }
+        else
+        {
+            echo "<script type='text/javascript'> alert('Correo o Contraseña Incorrectos')</script>";
+        }
+    }
+
+    if(isset($_POST["btnRegistro"]))
+    {
+        $correo = $_POST['correo'];
+        $contra = $_POST['contrasena'];
+
+        
+            $query = "select * from usuarios where correo = '$correo'";
+            $result= mysqli_query($con, $query);
+            if(!$result->num_rows > 0)
+            {
+                $query2 = "insert into usuarios (correo, contra) values ('$correo', '$contra')";
+                $result= mysqli_query($con, $query2);
+
+                if($result)
+                {
+                    echo "<script type='text/javascript'> alert('Registrado Correctamente')</script>";
+                }
+                else
+                {
+                    echo "<script type='text/javascript'> alert('Error al Registrar')</script>";
+                }
+            }else
+            {
+                echo "<script type='text/javascript'> alert('Correo Ya Existe')</script>";
+            }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
