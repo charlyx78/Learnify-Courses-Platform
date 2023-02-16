@@ -1,3 +1,6 @@
+$('document').ready(function () {
+    $('.toast').show();
+})
 $('#btnIrRegistro').click(function() {
     $('#carruselLoginRegistro').carousel('next');
 })
@@ -17,7 +20,6 @@ function previewImagen(input) {
       reader.readAsDataURL(input.files[0]);
     }
 }
-
 $('#formLogin').submit(function validacionesLogin(e) {
     var error = 0;
     var correo = $('#correoLogin').val().trim();
@@ -28,7 +30,19 @@ $('#formLogin').submit(function validacionesLogin(e) {
         e.preventDefault();
     }
 })
-const formRegistro = document.getElementById('formRegistro')
+$('#contrasena').on('input', function validacionContrasena() {
+    var contrasena = $(this).val();
+    var error = '<i class="bi bi-x-lg icono-error"></i>';
+    var success = '<i class="bi bi-check-lg icono-success"></i>';
+    $('#item-validacion-caracteres').find('i').remove();
+    $('#item-validacion-mayuscula').find('i').remove();
+    $('#item-validacion-caracter-especial').find('i').remove();
+    $('#item-validacion-numero').find('i').remove();
+    contrasena.length < 8 ? $('#item-validacion-caracteres').append(error) : $('#item-validacion-caracteres').append(success);
+    !/[A-Z]/.test(contrasena) ? $('#item-validacion-mayuscula').append(error) : $('#item-validacion-mayuscula').append(success);
+    !/[^A-Za-z0-9]/.test(contrasena) ? $('#item-validacion-caracter-especial').append(error) : $('#item-validacion-caracter-especial').append(success);
+    !/\d/.test(contrasena) ? $('#item-validacion-numero').append(error) : $('#item-validacion-numero').append(success);
+})
 $('#formRegistro').submit(function validacionesRegistro(e) {
     var error = 0;
     var nombre = $('#nombre').val().trim();
@@ -40,6 +54,7 @@ $('#formRegistro').submit(function validacionesRegistro(e) {
     var contrasena = $('#contrasena').val();
     var confirmarContrasena = $('#confirmarContrasena').val();
     const tipoCuenta = formRegistro.elements['tipoCuenta'];
+    let tipoCuentaSeleccionada = 0;
     !nombre ? ($('#nombre').addClass('is-invalid'), error++) : ($('#nombre').removeClass('is-invalid'));
     !apellidoPaterno ? ($('#apellidoPaterno').addClass('is-invalid'), error++) : ($('#apellidoPaterno').removeClass('is-invalid'));
     !apellidoMaterno ? ($('#apellidoMaterno').addClass('is-invalid'), error++) : ($('#apellidoMaterno').removeClass('is-invalid'));
@@ -48,15 +63,28 @@ $('#formRegistro').submit(function validacionesRegistro(e) {
     !correo ? ($('#correo').addClass('is-invalid'), error++) : ($('#correo').removeClass('is-invalid'));
     !contrasena ? ($('#contrasena').addClass('is-invalid'), error++) : ($('#contrasena').removeClass('is-invalid'));
     !confirmarContrasena ? ($('#confirmarContrasena').addClass('is-invalid'), error++) : confirmarContrasena != contrasena ? ($('#confirmarFeedback').text("Las contraseñas no coinciden"), $('#confirmarContrasena').addClass('is-invalid'), error++) : ($('#confirmarContrasena').removeClass('is-invalid'));
-    let tipoCuentaSeleccionada = 0;
     for(let i = 0; i < tipoCuenta.length; i++) {
         if(tipoCuenta[i].checked) {
             tipoCuentaSeleccionada++;
-
         }
     }
     tipoCuentaSeleccionada == 0 ? ($('#tipoCuentaEstudiante').addClass('is-invalid'), $('#tipoCuentaMaestro').addClass('is-invalid'), error++) : ($('#tipoCuentaEstudiante').removeClass('is-invalid'), $('#tipoCuentaMaestro').removeClass('is-invalid'));
-    if(error > 0) {
+    var contrasenaValida = true;
+    if ($('#item-validacion-caracteres i.bi-x-lg').length > 0 ||
+        $('#item-validacion-mayuscula i.bi-x-lg').length > 0 ||
+        $('#item-validacion-caracter-especial i.bi-x-lg').length > 0 ||
+        $('#item-validacion-numero i.bi-x-lg').length > 0) {
+        contrasenaValida = false;
+    }
+    if(error > 0 || !contrasenaValida) {
         e.preventDefault();
     }
+    if (!contrasenaValida) {
+    }
 })
+function removerError(e) {
+    var id = '#' + e.target.id;
+    if($(id).find('.is-invalid')) {
+        $(id).removeClass('is-invalid');
+    }
+}

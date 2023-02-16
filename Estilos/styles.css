@@ -1,6 +1,8 @@
 /* VARIABLES */
 :root {
     --blanco: #F5F5F5;
+    --rojo: #ff3333;
+    --verde: #22bb33;
 }
 /* GLOBALES */
 label {
@@ -10,6 +12,14 @@ label {
     font-weight: bolder;
     cursor: pointer;
     font-size: 1.8em;
+}
+.icono-error {
+    font-weight: bold;
+    color: var(--rojo);
+}
+.icono-success {
+    font-weight: bold;
+    color: var(--verde);
 }
 .overlay {
     background-color: rgba(0, 0, 0, 0.8);
