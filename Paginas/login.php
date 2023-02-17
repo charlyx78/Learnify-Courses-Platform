@@ -95,7 +95,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <label for="genero">Género</label>
-                                            <select class="form-select mb-2" name="genero" id="genero" aria-label="Default select example"> 
+                                            <select class="form-select mb-2" name="genero" id="genero" aria-label="Default select example" oninput="removerError(event)"> 
                                                 <option selected value="">Género</option>
                                                 <option value="hombre">Hombre</option>
                                                 <option value="mujer">Mujer</option>
