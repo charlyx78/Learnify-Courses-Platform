@@ -1,0 +1,11 @@
+@import "../variables.scss";
+.navegacion {
+    background-color: $color-primario;
+    .logo {
+        font-family: $fuente-primaria;
+        font-weight: 800;
+    }
+    a {
+        color: $color-secundario;
+    }
+}

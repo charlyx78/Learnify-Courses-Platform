@@ -1,0 +1,47 @@
+@import 'variables';
+.color-primario {
+    color: $color-primario;
+}
+.color-success {
+    color: $color-success;
+}
+.bg-light-nb {
+    background-color: $color-light;
+    color: $color-dark;
+}
+.bg-primario {
+    background-color: $color-primario;
+    color: $color-light;
+}
+.bg-secundario {
+    background-color: $color-secundario;
+    color: $color-dark;
+}
+.bg-terciario {
+    background-color: $color-terciario;
+    color: $color-dark;
+}
+.boton-secundario {
+    background-color: $color-secundario;
+    color: $color-dark;
+    padding: 0.4em 1em;
+    &:hover {
+        background-color: $color-secundario-hover;  
+    }
+}
+.borde-secundario {
+    border: 1px solid $color-secundario;
+    color: $color-dark;
+}
+.boton-terciario {
+    background-color: $color-terciario;
+    color: $color-dark;
+    padding: 0.4em 1em;
+    &:hover {
+        background-color: $color-terciario-hover;  
+    }
+}
+.borde-terciario {
+    border: 1px solid $color-terciario;
+    color: $color-dark;
+}

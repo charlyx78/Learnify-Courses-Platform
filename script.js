@@ -88,3 +88,23 @@ function removerError(e) {
         $(id).removeClass('is-invalid');
     }
 }
+
+const navItems = $('.item-navegacion-home');
+navItems.on('click', function() {
+    navItems.removeClass('item-active');  
+    $(this).addClass('item-active');
+});
+
+$('document').ready(function(){
+    maxTituloCurso = 40;
+    var titulosCurso = document.querySelectorAll('.titulo-curso')
+    titulosCurso.forEach((tituloCurso) => {
+        if(tituloCurso.textContent.length > maxTituloCurso) {
+            tituloCurso.textContent = tituloCurso.textContent.substring(0, maxTituloCurso) + "...";
+        }
+        else {
+            tituloCurso.textContent = tituloCurso.textContent;
+        }
+    });
+});
+
