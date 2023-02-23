@@ -102,6 +102,9 @@
     }
     .contenedor-cuerpo-curso {
         padding-left: 0;
+        .titulo-curso {
+            height: 40px;
+        }
     }
     @media (min-width: $tablet) {
         .contenedor-imagen-curso {
@@ -109,10 +112,20 @@
         }
         .contenedor-cuerpo-curso {
             padding-left: 0.75em;
+            .titulo-curso {
+                height: 70px;
+            }
+        }
+    }
+    @media (min-width: $desktop) {
+        .contenedor-cuerpo-curso {
+            .titulo-curso {
+                height: 60px;
+            }
         }
     }
     .imagen-curso {
-        height : 157px;
+        height : 158px;
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;

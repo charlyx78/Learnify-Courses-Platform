@@ -53,11 +53,11 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="cursos row">
-                    <div class="col-12 col-md-4 col-lg-3 mb-3">
-                        <div class="curso card">
+                    <a href="curso.php" class="col-12 col-md-4 col-lg-3 mb-3">
+                        <div class="curso card border-0">
                             <div class="row">
                                 <div class="col-4 col-md-12 contenedor-imagen-curso">
-                                    <div class="img-card-top imagen-curso" style="background-image: url(../Imagenes/base-datos.jpeg);"></div>
+                                    <div class="img-card-top imagen-curso rounded-top" style="background-image: url(../Imagenes/base-datos.jpeg);"></div>
                                 </div>
                                 <div class="col-8 col-md-12 contenedor-cuerpo-curso">
                                     <div class="card-body">
@@ -66,7 +66,7 @@
                                         <p class="text-secondary mb-1">Juan Alejandro Villareal Mojica</p>
                                         <h6 class="m-0 fw-normal">$ MXN 500</h6>
                                     </div>
-                                    <div class="card-footer d-flex justify-content-between">
+                                    <div class="card-footer d-flex border-0 bg-transparent justify-content-between">
                                         <p class="text-secondary d-flex gap-2 mb-1"> <i class="bi bi-clock fw-bold"></i> 15 horas</p> 
                                         <p class="text-secondary d-flex gap-2 mb-1"> <i class="bi bi-people-fill"></i></i> 20,547</p>
                                     </div>
@@ -76,31 +76,7 @@
                                 <span class="badge rounded-pill bg-light-nb"><i class="bi bi-star-fill me-2 color-calificacion"></i></i>4.5 (10,523)</span>
                             </div>            
                         </div>
-                    </div>                                                   
-                    <div class="col-12 col-md-4 col-lg-3 mb-3">
-                        <div class="curso card">
-                            <div class="row">
-                                <div class="col-4 col-md-12 contenedor-imagen-curso">
-                                    <div class="img-card-top imagen-curso" style="background-image: url(../Imagenes/escritorio-estudios.jpg);"></div>
-                                </div>
-                                <div class="col-8 col-md-12 contenedor-cuerpo-curso">
-                                    <div class="card-body">
-                                        <h5 class="mb-1 titulo-curso"
-                                        title="Curso de modelo de administracion de datos (SQL Server)">Curso de organizacion del tiempo</h5>
-                                        <p class="text-secondary mb-1">Samuel Castro Botello</p>
-                                        <h6 class="m-0 fw-normal">$ MXN 120</h6>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between">
-                                        <p class="text-secondary d-flex gap-2 mb-1"> <i class="bi bi-clock fw-bold"></i> 15 horas</p> 
-                                        <p class="text-secondary d-flex gap-2 mb-1"> <i class="bi bi-people-fill"></i></i> 4,211</p>
-                                    </div>
-                                </div>
-                            </div>                
-                            <div class="calificacion-curso position-absolute p-2">
-                                <span class="badge rounded-pill bg-light-nb"><i class="bi bi-star-fill me-2 color-calificacion"></i></i>4.0 (2,145)</span>
-                            </div>            
-                        </div>
-                    </div>                                                   
+                    </a>                                                                                                     
                 </div>
 
                 </div>
@@ -112,9 +88,9 @@
                 </div>
             </div>
     </div>
-
-        
     </main>
+
+<?php include ('../footer.php'); ?>
 
     <script src="../script.js"></script>
 

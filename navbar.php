@@ -1,7 +1,7 @@
 <!-- NAVEGACION -->
 <nav class="navbar navbar-expand-md fixed-top navegacion" style="top:0; right:0; left:0;">
         <div class="container-sm container-fluid">
-            <a class="navbar-brand logo" href="#">
+            <a class="navbar-brand logo" href="home.php">
                 <img src="../Imagenes/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">    
                 learnify
             </a>
@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="#">Mis cursos</a>

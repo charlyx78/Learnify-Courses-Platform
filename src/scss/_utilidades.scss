@@ -2,6 +2,9 @@
 .color-primario {
     color: $color-primario;
 }
+.color-light {
+    color: $color-light;
+}
 .color-success {
     color: $color-success;
 }
@@ -44,4 +47,13 @@
 .borde-terciario {
     border: 1px solid $color-terciario;
     color: $color-dark;
+}
+.logo {
+    color: $color-secundario;
+    font-size: 1.2em;
+    font-family: $fuente-primaria;
+    font-weight: 800;
+}
+.linea-vertical {
+    border: 1px solid $color-dark;
 }
