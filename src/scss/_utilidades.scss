@@ -16,6 +16,15 @@
     background-color: $color-primario;
     color: $color-light;
 }
+.boton-primario {
+    background-color: $color-primario;
+    color: $color-light;
+    padding: 0.4em 1em;
+    &:hover {
+        background-color: $color-primario-hover;  
+        color: $color-light;
+    }
+}
 .bg-secundario {
     background-color: $color-secundario;
     color: $color-dark;
@@ -56,4 +65,7 @@
 }
 .linea-vertical {
     border: 1px solid $color-dark;
+}
+.titulo-curso {
+    font-weight: 600;
 }

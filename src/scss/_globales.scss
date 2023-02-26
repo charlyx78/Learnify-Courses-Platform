@@ -3,16 +3,13 @@ body {
     background-color: $color-light;
     padding-top: 55px;
 }
-h1 {
+h1, h2 {
     font-family: $fuente-primaria;
-    font-weight: 800;
 }
-h2 {
-    font-family: $fuente-primaria;
-    font-weight: 800;
+h3, h4, h5, h6, p, label, input, a, li, button, .btn {
+    font-family: $fuente-secundaria;
 }
-h2 {
-    font-family: $fuente-primaria;
+h1, h2 {
     font-weight: 800;
 }
 h5 {
@@ -67,4 +64,9 @@ ul {
 a {
     text-decoration: none;
     color: $color-dark;
+}
+.contenido {
+    width: 100%;
+    min-height: 80vh;
+    padding: 2em 2em;
 }

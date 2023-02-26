@@ -16,13 +16,13 @@
 <!-- TITULO -->
     <div class="header-curso-view row mb-4">
         <div class="col-12">
-            <h3 class="mb-2 fw-bold">Curso de modelo de administracion de datos (SQL Server)</h3>
+            <h3 class="mb-2 fw-bolder">Curso de modelo de administracion de datos (SQL Server)</h3>
         </div>
         <div class="col-12 col-md-9">
-            <h4 class="mb-2">$500 MXN</h4>
+            <h4 class="precio-curso-view fw-bold mb-2">$500 MXN</h4>
         </div>
         <div class="col-12 col-md-3 mb-4">
-            <button class="btn boton-terciario w-100">Comprar</button>
+            <button class="btn boton-secundario w-100">Comprar</button>
         </div>
 <!-- IMAGEN -->
         <div class="col-12 imagen-curso-view mb-3" style="background-image: url(../Imagenes/base-datos.jpeg);">
@@ -59,14 +59,14 @@
 <!-- LECIONES -->
     <section class="lecciones mb-5">
         <h4 class="fw-bold mb-3">Lecciones</h4>
-        <div class="accordion" id="accordionModulos">
+        <div class="accordion" id="panelsStayOpen-accordionModulos">
             <div class="accordion-item">
-                <h4 class="accordion-header" id="heading1">
-                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
+                <h4 class="accordion-header" id="panelsStayOpen-heading1">
+                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
                         Módulo
                     </button>
                 </h4>
-                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionModulos">
+                <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
                     <div class="accordion-body p-0">
                         <ul class="list-group list-group-flush">
                             <a href="#" class="list-group-item list-group-item-action">Leccion</a>
@@ -77,12 +77,12 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <h4 class="accordion-header" id="heading2">
-                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapseOne">
+                <h4 class="accordion-header" id="panelsStayOpen-heading2">
+                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="true" aria-controls="panelsStayOpen-collapse2">
                         Módulo
                     </button>
                 </h4>
-                <div id="collapse2" class="accordion-collapse collapse show" aria-labelledby="heading2" data-bs-parent="#accordionModulos">
+                <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading2">
                     <div class="accordion-body p-0">
                         <ul class="list-group list-group-flush">
                             <a href="#" class="list-group-item list-group-item-action">Leccion</a>
@@ -102,7 +102,7 @@
             <div class="carousel-item active px-3">
                 <div class="row gap-2 d-flex justify-content-center">
                     <div class="col-12 col-md-3">
-                        <div class="card testimonial rounded-0 border-0">
+                        <div class="card shadow-lg testimonial rounded-0 border-0">
                             <div class="card-body row">
                                 <h5 class="card-title col-12">Nombre del usuario</h5>
                                 <h6 class="col-12 calificacion-testimonial mb-3"><i class="bi bi-star-fill me-2"></i>4.5</h6>

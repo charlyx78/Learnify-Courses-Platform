@@ -1,5 +1,5 @@
 <!-- FOOTER -->
-<footer class="site-footer mt-5">
+<footer class="site-footer">
         <div class="contenido-footer container-sm container-fluid">
             <a class="logo d-flex justify-content-center mb-2" href="home.php">
                 <img src="../Imagenes/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">    

@@ -1,7 +1,7 @@
 <!-- NAVEGACION -->
 <nav class="navbar navbar-expand-md fixed-top navegacion" style="top:0; right:0; left:0;">
         <div class="container-sm container-fluid">
-            <a class="navbar-brand logo" href="home.php">
+            <a class="navbar-brand logo" href="homee.php">
                 <img src="../Imagenes/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">    
                 learnify
             </a>
@@ -11,10 +11,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.php">Inicio</a>
+                    <a class="nav-link" aria-current="page" href="homee.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Mis cursos</a>
+                    <a class="nav-link" href="kardex.php">Kardex</a>
                     </li>
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">  
@@ -28,9 +28,9 @@
                         </ul>
                     </li> -->
                 </ul>
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item"> <button class="btn boton-secundario me-4">Iniciar sesion</button> </li>
-                    <li class="nav-item"> <button class="btn boton-secundario">Registrarse</button> </li>
+                <ul class="navbar-nav d-flex flex-row botones-login-registro">
+                    <li class="nav-item"> <a href="login.php" class="btn boton-secundario me-4">Iniciar sesion</a> </li>
+                    <li class="nav-item"> <a href="login.php" class="btn boton-secundario">Registrarse</a> </li>
                 </ul>
                         
 

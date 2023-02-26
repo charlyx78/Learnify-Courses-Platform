@@ -12,17 +12,17 @@
 <?php include('../navbar.php'); ?>
 
 <!-- HERO -->
-    <section class="hero mb-5">
+    <section class="hero">
         <div class="hero-contenido container-sm">
             <img src="../Imagenes/hero.svg" alt="">
             <div class="hero-slogan">
-                <h1 class="mb-2">Lleva tu carrera al máximo potencial</h1> 
+                <h1 class="mb-3">Lleva tu carrera al máximo potencial</h1> 
                 <h6 class="m-0">De mano los mejores profesionales con cursos online</h6>
             </div>            
         </div>                    
     </section>
 
-    <main class="container-sm">
+    <main class="container-sm contenido">
 <!-- SEARCHBAR -->
         <section class="busqueda-curso mb-4">
             <form class="form-busqueda gap-2">
@@ -64,7 +64,7 @@
                                         <h5 class="mb-1 titulo-curso"
                                         title="Curso de modelo de administracion de datos (SQL Server)">Curso de modelo de administracion de datos (SQL Server)</h5>
                                         <p class="text-secondary mb-1">Juan Alejandro Villareal Mojica</p>
-                                        <h6 class="m-0 fw-normal">$ MXN 500</h6>
+                                        <h6 class="m-0">$ MXN 500</h6>
                                     </div>
                                     <div class="card-footer d-flex border-0 bg-transparent justify-content-between">
                                         <p class="text-secondary d-flex gap-2 mb-1"> <i class="bi bi-clock fw-bold"></i> 15 horas</p> 
