@@ -58,7 +58,7 @@
 
 <!-- LECIONES -->
     <section class="lecciones mb-5">
-        <h4 class="fw-bold mb-3">Lecciones</h4>
+        <h4 class="fw-bold mb-3">Contenido del curso</h4>
         <div class="accordion" id="panelsStayOpen-accordionModulos">
             <div class="accordion-item">
                 <h4 class="accordion-header" id="panelsStayOpen-heading1">

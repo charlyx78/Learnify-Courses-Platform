@@ -69,3 +69,16 @@
 .titulo-curso {
     font-weight: 600;
 }
+.icono-volver {
+    font-weight: bolder;
+    cursor: pointer;
+    font-size: 1.8em;
+}
+.icono-error {
+    font-weight: bold;
+    color: $color-error;
+}
+.icono-success {
+    font-weight: bold;
+    color: $color-success;
+}

@@ -1,0 +1,95 @@
+@import "../variables.scss";
+.body-login {
+    background-color: white;
+}
+.contenedor-fondo-bienvenida{
+    display: none;
+}
+.contenido-superior-fondo-bienvenida {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 2em;
+    .logo {
+        display: flex;
+        align-items: end;
+    }
+}
+.contenido-inferior-fondo-bienvenida {
+    display: none;
+}
+@media (min-width:$tablet) {
+    .body-login {
+        padding: 0;
+        margin: 0;
+    }
+    .col-lg-6 {
+        padding-left: 0;
+    }
+    .contenedor-pagina {
+        height: 100vh;
+        .contenedor-bienvenida {
+            margin-right: 2em;
+            width: 100%;
+            height: 100vh;
+            display: block;
+            position: relative;
+            .contenido-fondo-bienvenida {
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 2;
+                height: 100%;
+                color: $color-light;
+                padding: 2em 4em;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                .contenido-superior-fondo-bienvenida {
+                    font-size: 2em;
+                }
+                .contenido-inferior-fondo-bienvenida {
+                    display: block;
+                }
+            }
+            .overlay {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(8, 24, 38, 0.9);
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+            }
+            .fondo-bienvenida {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 0;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }   
+
+        }
+        .contenedor-formulario {
+            padding: 2em 4em;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+    }
+
+}
+
+
+
+.fila-login {
+    margin-bottom: 1em;
+}
