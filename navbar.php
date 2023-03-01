@@ -21,10 +21,15 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center dropdown-cuenta" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">  
                             knockrets
-                            <img src="../Imagenes/escritorio-estudios.jpg" class="rounded-circle ms-2" width="22" height="22" alt="Avatar"> 
+                            <img src="../Imagenes/avatar.svg" class="rounded-circle ms-2 position-relative" width="22" height="22" alt="Avatar">
+                            <span class="position-absolute top-10 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-3" href="mensajes.php">Mensajes<span class="badge bg-danger">1</span>
+                            </a></li>
+                            <li><a class="dropdown-item" href="cuenta.php">Mi cuenta</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="login.php">Cerrar sesión <i class="bi bi-box-arrow-right ms-2"></i></a></li>
                         </ul>

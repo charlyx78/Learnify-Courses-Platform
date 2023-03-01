@@ -38,17 +38,18 @@
             </div>
         </div>
 
-        <div class="col-12 d-flex justify-content-end item-detalle-curso-view gap-2">
+        <div class="col-12 hstack d-flex justify-content-end item-detalle-curso-view gap-2">
+
             <h5 class="d-flex align-items-center gap-2">
                 <i class="bi bi-book"></i>
                 100 Leciones
             </h5>
-            <h5 class="linea-vertical"></h5>
+            <div class="vr"></div>
             <h5 class="d-flex align-items-center gap-2">
                 <i class="bi bi-clock"></i>
                 15 Horas
             </h5>
-            <h5 class="linea-vertical"></h5>
+            <div class="vr"></div>
             <h5 class="d-flex align-items-center gap-2">
                 <i class="bi bi-person-fill"></i>
                 10547 Alumnos
