@@ -1,8 +1,3 @@
-@media(min-width:768px) {
-    .precio-curso-view {
-        text-align: right;
-    }
-}
 .imagen-curso-view {
     height: 20em;
     margin: 0 auto;
@@ -32,4 +27,17 @@
 .accordion-button:not(.collapsed) {
     color: $color-dark;
     background-color: white;
+}
+.leccion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .formatos-leccion {
+        font-size: 1.4em;
+    }
+}
+@media(min-width: $desktop) {
+    .precio-curso-view {
+        text-align: right;
+    }
 }

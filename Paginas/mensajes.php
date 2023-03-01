@@ -17,8 +17,8 @@
             <ul class="list-group">
                 <a class="list-group-item" href="mensajesChat.php">
                     <div class="row">
-                        <div class="col-1 avatar-mensaje"><img src="../Imagenes/avatar.svg" class="rounded-circle" width="45" height="45" alt="Avatar"></div>
-                        <div class="col-11">
+                        <div class="col-2 col-lg-1 avatar-mensaje"><img src="../Imagenes/avatar.svg" class="rounded-circle" width="45" height="45" alt="Avatar"></div>
+                        <div class="col-10 col-lg-11">
                             <div class="d-flex justify-content-between align-items-end mb-1">
                                 <h6 class="m-0">charlyx78</h6>
                                 <p class="m-0 text-secondary">01/03/2023</p>

@@ -70,9 +70,21 @@
                 <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
                     <div class="accordion-body p-0">
                         <ul class="list-group list-group-flush">
-                            <a href="#" class="list-group-item list-group-item-action">Leccion</a>
-                            <a href="#" class="list-group-item list-group-item-action">Leccion</a>
-                            <a href="#" class="list-group-item list-group-item-action">Leccion</a>
+                            <a href="#" class="list-group-item list-group-item-action leccion">Leccion
+                                <div class="formatos-leccion">
+                                    <i class="bi bi-camera-video-fill text-secondary"></i>
+                                </div>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action leccion">Leccion
+                                <div class="formatos-leccion">
+                                    <i class="bi bi-file-earmark-text text-secondary"></i>
+                                </div>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action leccion">Leccion
+                                <div class="formatos-leccion">
+                                    <i class="bi bi-filetype-pdf text-secondary"></i>
+                                </div>
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -86,9 +98,24 @@
                 <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading2">
                     <div class="accordion-body p-0">
                         <ul class="list-group list-group-flush">
-                            <a href="#" class="list-group-item list-group-item-action">Leccion</a>
-                            <a href="#" class="list-group-item list-group-item-action">Leccion</a>
-                            <a href="#" class="list-group-item list-group-item-action">Leccion</a>
+                        <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
+                            <div class="formatos-leccion">
+                                <i class="bi bi-file-earmark-text text-secondary"></i>
+                                <i class="bi bi-image-fill text-secondary"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
+                            <div class="formatos-leccion">
+                                <i class="bi bi-file-earmark-text text-secondary"></i>
+                                <i class="bi bi-image-fill text-secondary"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
+                            <div class="formatos-leccion">
+                                <i class="bi bi-file-earmark-text text-secondary"></i>
+                                <i class="bi bi-image-fill text-secondary"></i>
+                            </div>
+                        </a>               
                         </ul>
                     </div>
                 </div>
