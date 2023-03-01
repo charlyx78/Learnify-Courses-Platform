@@ -1,0 +1,13 @@
+@import "../variables.scss";
+@media(min-width:$tablet) {
+    .avatar-mensaje {
+        width: auto;
+    }
+    .contenedor-chat {
+        padding: 2em 3em;
+        height: 60vh;
+        .contenido-chat {
+            min-height: 100%;
+        }
+    }
+}

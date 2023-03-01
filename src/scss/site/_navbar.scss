@@ -1,0 +1,15 @@
+@import "../variables.scss";
+.navegacion {
+    background-color: $color-primario;
+    a {
+        color: $color-secundario;
+    }
+    .botones-login-registro {
+        a {
+            color: $color-dark;
+        }
+        a.dropdown-cuenta {
+            color: $color-secundario;
+        }
+    }
+}

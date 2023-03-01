@@ -1,0 +1,35 @@
+@media(min-width:768px) {
+    .precio-curso-view {
+        text-align: right;
+    }
+}
+.imagen-curso-view {
+    height: 20em;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+.categorias-curso-view {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.testimonial {
+    position: relative;
+}
+.imagen-usuario-testimonial {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    padding: 1em;
+    img {
+        height: 50px;
+        width: 50px;
+    }
+}
+.accordion-button:not(.collapsed) {
+    color: $color-dark;
+    background-color: white;
+}
