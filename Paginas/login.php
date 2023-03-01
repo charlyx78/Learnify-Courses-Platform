@@ -12,11 +12,17 @@
 
         if($result->num_rows > 0)
         {
-            echo "<script type='text/javascript'> alert('Sesion Iniciada Correctamente')</script>";
+            $row = $result->fetch_assoc();
+            $correo_iniciado = $row['Correo'];
+            
+            $_SESSION['correo'] = $correo_iniciado;
+            header("Location: probar.php");
+            //echo "<script type='text/javascript'> alert('Sesion Iniciada Correctamente')</script>";
         }
         else
         {
-            echo "<script type='text/javascript'> alert('Correo o Contraseña Incorrectos')</script>";
+            echo "No existe usuario";
+            //echo "<script type='text/javascript'> alert('Correo o Contraseña Incorrectos')</script>";
         }
     }
 
@@ -30,20 +36,13 @@
             $result= mysqli_query($con, $query);
             if(!$result->num_rows > 0)
             {
-                $query2 = "insert into usuarios (correo, contra) values ('$correo', '$contra')";
-                $result= mysqli_query($con, $query2);
-
-                if($result)
-                {
-                    echo "<script type='text/javascript'> alert('Registrado Correctamente')</script>";
-                }
-                else
-                {
-                    echo "<script type='text/javascript'> alert('Error al Registrar')</script>";
-                }
+                echo "Registrao pa";
+                //$query2 = "insert into usuarios (correo, contra) values ('$correo', '$contra')";
+                //$result= mysqli_query($con, $query2);
             }else
             {
-                echo "<script type='text/javascript'> alert('Correo Ya Existe')</script>";
+                echo "Correo ya existe pa";
+                //echo "<script type='text/javascript'> alert('Correo Ya Existe')</script>";
             }
     }
 ?>
@@ -80,7 +79,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <h2 class="fw-bold mb-4">Inicia sesión</h2>
-                            <form action="#" class="formulario-login" id="formLogin" method="POST">
+                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="formulario-login" id="formLogin" method="POST">
                                 <label for="correoLogin">Correo electrónico</label>
                                 <input type="text" name="correoLogin" id="correoLogin" class="form-control mb-2">
                                 <div id="correoFeedback" class="invalid-feedback mb-1">
@@ -104,7 +103,7 @@
                                 <i class="bi bi-chevron-left icono-volver me-4" id="btnIrLogin"></i>
                                 <h2 class="fw-bold mb-0">Regístrate</h2>
                             </div>
-                            <form action="#" class="formulario-registro mt-4" id="formRegistro" method="POST">
+                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="formulario-registro mt-4" id="formRegistro" method="POST">
                                 <div class="grid">
                                     <div class="row">
                                         <div class="col">
