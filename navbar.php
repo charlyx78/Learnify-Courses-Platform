@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(!isset($_SESSION['correo']))
+if(!isset($_SESSION['nombre']))
 {
     header("Location: login.php");
 }
-$inciado = $_SESSION['correo'];
+$inciado = $_SESSION['nombre'];
 
 ?>
 <!-- NAVEGACION -->
@@ -40,7 +40,7 @@ $inciado = $_SESSION['correo'];
                             </a></li>
                             <li><a class="dropdown-item" href="cuenta.php">Mi cuenta</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="login.php">Cerrar sesión <i class="bi bi-box-arrow-right ms-2"></i></a></li>
+                            <li><a class="dropdown-item" href="logout.php">Cerrar sesión <i class="bi bi-box-arrow-right ms-2"></i></a></li>
                         </ul>
                     </li>
                     <!-- <li class="nav-item"> <a href="login.php" class="btn boton-secundario me-4">Iniciar sesion</a> </li>
