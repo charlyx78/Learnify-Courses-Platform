@@ -1,16 +1,8 @@
-<?php
-session_start();
-if(!isset($_SESSION['nombre']))
-{
-    header("Location: login.php");
-}
-$inciado = $_SESSION['nombre'];
-
-?>
+<?php include('../Programa/redireccionLogin.php');?>
 <!-- NAVEGACION -->
 <nav class="navbar navbar-expand-md fixed-top navegacion" style="top:0; right:0; left:0;">
         <div class="container-sm container-fluid">
-            <a class="navbar-brand logo" href="homee.php">
+            <a class="navbar-brand logo" href="home.php">
                 <img src="../Imagenes/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">    
                 learnify
             </a>
@@ -20,7 +12,7 @@ $inciado = $_SESSION['nombre'];
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="homee.php">Inicio</a>
+                    <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="kardex.php">Kardex</a>
@@ -40,7 +32,7 @@ $inciado = $_SESSION['nombre'];
                             </a></li>
                             <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="logout.php">Cerrar sesión <i class="bi bi-box-arrow-right ms-2"></i></a></li>
+                            <li><a class="dropdown-item" href="../Programa/logout.php">Cerrar sesión <i class="bi bi-box-arrow-right ms-2"></i></a></li>
                         </ul>
                     </li>
                     <!-- <li class="nav-item"> <a href="login.php" class="btn boton-secundario me-4">Iniciar sesion</a> </li>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,12 +87,12 @@
                     <h1>MAS RECIENTES</h1>
                 </div>
             </div>
-    </div>
+        </div>
     </main>
 
 <?php include ('../footer.php'); ?>
 
-    <script src="../script.js"></script>
+<script src="../script.js"></script>
 
 </body>
 </html>
