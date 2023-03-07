@@ -95,7 +95,7 @@
         // Si es la primera vez que inicia sesion con su cuenta de Google, se redirecciona a la pagina registroAPI. 
         // En donde se autocompletan los datos ya obtenidos de la cuenta de Google y se completan los datos faltantes para despues registrar el usuario en la base de datos.
 
-        // Se inicia sesion con la informacion de la cuenta de Google si ya ha iniciado sesion antes
+        // Se inicia sesion en el home con la informacion de la cuenta de Google si ya ha iniciado sesion antes
 
     }
 

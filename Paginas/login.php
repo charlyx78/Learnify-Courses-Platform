@@ -59,7 +59,6 @@
                                         <h6><a href="#" class="link-dark link-bold" id="btnIrRegistro">Regístrate ahora</a></h6>
                                     </div>
                                     <h6 class="fw-normal text-center mb-4">ó</h6>
-                                    <?php require ('../Programa/configuracionGoogle.php'); ?>
                                     <a href="<?= $client->createAuthUrl(); ?>" class="btn border d-flex justify-content-center align-items-center border fw-bold">
                                         <img src="../Imagenes//icono-google.svg" width="30" height="30" class="me-2 rounded">
                                         Inicia sesión con Google
