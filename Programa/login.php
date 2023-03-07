@@ -62,4 +62,30 @@
                 //echo "<script type='text/javascript'> alert('Correo Ya Existe')</script>";
             }
     }
+
+    require_once '../vendor/autoload.php';
+    
+    $clientID = '539426120680-lvogna6eo124iulgdv6sfg83nujce42n.apps.googleusercontent.com';
+    $clientSecret = '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';
+    $redirectUri = 'http://localhost/Learnify/Paginas/login.php';
+    
+    $client = new Google\Client();
+    $client->setClientId($clientID);
+    $client->setClientSecret($clientSecret);
+    $client->setRedirectUri($redirectUri);
+    $client->addScope("email");
+    $client->addScope("profile");
+
+    if(isset($_GET['code'])) {
+        $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+        $client->setAccessToken($token['access_token']);
+
+        $google_oauth = new Google\Service\Oauth2($client);
+        $google_account_info = $google_oauth->userinfo->get();
+        $email = $google_account_info->email;
+        $nombre = $google_account_info->givenName;
+        $apellidoPaterno = $google_account_info->familyName;
+        $fotoPerfil = $google_account_info->picture;
+    }
+
 ?>

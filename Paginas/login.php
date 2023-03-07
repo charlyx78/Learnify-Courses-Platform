@@ -58,9 +58,14 @@
                                         <h6 class="fw-normal">¿Aún no tienes una cuenta?</h6>
                                         <h6><a href="#" class="link-dark link-bold" id="btnIrRegistro">Regístrate ahora</a></h6>
                                     </div>
-                                    <h6 class="fw-normal text-center">O inicia sesión usando</h6>
+                                    <h6 class="fw-normal text-center mb-4">ó</h6>
+                                    <?php require ('../Programa/configuracionGoogle.php'); ?>
+                                    <a href="<?= $client->createAuthUrl(); ?>" class="btn border d-flex justify-content-center align-items-center border fw-bold">
+                                        <img src="../Imagenes//icono-google.svg" width="30" height="30" class="me-2 rounded">
+                                        Inicia sesión con Google
+                                    </a>
                                 </div>
-        <!-- REGISTRO -->
+<!-- REGISTRO -->
                                 <div class="carousel-item">
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-chevron-left icono-volver me-4" id="btnIrLogin"></i>
@@ -188,7 +193,6 @@
 
                                         <input type="submit" name="btnRegistro" class="btn boton-secundario w-100 mb-4" id="btnRegistro" value="Registrarse">
                                     </form>
-                                    <h6 class="fw-normal text-center">O regístrate usando</h6>
                                 </div>
                             </div>
                         </div>
