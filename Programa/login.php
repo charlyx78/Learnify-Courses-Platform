@@ -63,6 +63,7 @@
             }
     }
 
+    // Se instala composer y se manda a llamar autoload
     require_once '../vendor/autoload.php';
     // Se declaran las credenciales de la API de Google
     $clientID = '539426120680-lvogna6eo124iulgdv6sfg83nujce42n.apps.googleusercontent.com';
