@@ -1,3 +1,4 @@
+<?php include('../Programa/login.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,14 +26,14 @@
                     <div class="row fila-login">
                         <div class="col-12 col-lg-4 fila-login">
                             <label for="nombre">Nombre(s)</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" oninput="removerError(event)">
+                            <input type="text" name="nombre" id="nombre" class="form-control" oninput="removerError(event)" value="<?php echo($nombre);?>" disabled>
                             <div id="nombreFeedback" class="invalid-feedback mb-1">
                                 Escriba su nombre, por favor.
                             </div>
                         </div>
                         <div class="col-6 col-lg-4">
                             <label for="apellido">Apellido paterno</label>
-                            <input type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control mb-2" oninput="removerError(event)">
+                            <input type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control mb-2" oninput="removerError(event)" value="<?php echo($apellidoPaterno);?>" disabled>
                             <div id="apellidoPaternoFeedback" class="invalid-feedback mb-1">
                                 Escriba su apellido paterno, por favor.
                             </div>
@@ -71,7 +72,7 @@
                     <div class="row fila-login">
                         <div class="col">
                             <label for="correo">Correo electrónico</label>
-                            <input type="email" name="correo" id="correo" class="form-control mb-2" oninput="removerError(event)">
+                            <input type="email" name="correo" id="correo" class="form-control mb-2" oninput="removerError(event)" value="<?php echo($email);?>" disabled>
                             <div id="correoFeedback" class="invalid-feedback mb-1">
                                 Escriba un correo, por favor.
                             </div>
