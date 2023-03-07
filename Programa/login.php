@@ -67,7 +67,7 @@
     // Se declaran las credenciales de la API de Google
     $clientID = '539426120680-lvogna6eo124iulgdv6sfg83nujce42n.apps.googleusercontent.com';
     $clientSecret = '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';
-    $redirectUri = 'http://localhost/Learnify/Paginas/login.php';
+    $redirectUri = 'http://localhost/Learnify/Paginas/registroAPI.php';
 
     // Se crea una instancia del cliente de Google
     $client = new Google\Client();
@@ -91,8 +91,9 @@
         $nombre = $google_account_info->givenName;
         $apellidoPaterno = $google_account_info->familyName;
         $fotoPerfil = $google_account_info->picture;
-
-        // Se registra un usuario con la informacion si es la primera vez que inicia sesion con su cuenta de Google
+        
+        // Si es la primera vez que inicia sesion con su cuenta de Google, se redirecciona a la pagina registroAPI. 
+        // En donde se completan los datos faltantes y se registra el usuario en la base de datos.
 
         // Se inicia sesion con la informacion de la cuenta de Google si ya ha iniciado sesion antes
 
