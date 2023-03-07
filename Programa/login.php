@@ -91,9 +91,9 @@
         $nombre = $google_account_info->givenName;
         $apellidoPaterno = $google_account_info->familyName;
         $fotoPerfil = $google_account_info->picture;
-        
+
         // Si es la primera vez que inicia sesion con su cuenta de Google, se redirecciona a la pagina registroAPI. 
-        // En donde se completan los datos faltantes y se registra el usuario en la base de datos.
+        // En donde se autocompletan los datos ya obtenidos de la cuenta de Google y se completan los datos faltantes para despues registrar el usuario en la base de datos.
 
         // Se inicia sesion con la informacion de la cuenta de Google si ya ha iniciado sesion antes
 
