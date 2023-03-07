@@ -1,6 +1,13 @@
 @import "../variables.scss";
 .navegacion {
     background-color: $color-primario;
+    .nav-link,.navbar-brand {
+        transition: ease-in-out 0.2s;
+        &:hover {
+            transform: scale(1.1);
+            color: $color-secundario;
+        }
+    }
     a {
         color: $color-secundario;
     }

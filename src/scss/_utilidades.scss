@@ -44,6 +44,9 @@
 .borde-secundario {
     border: 1px solid $color-secundario;
     color: $color-dark;
+    &:hover {
+        border: 1px solid $color-secundario;
+    }
 }
 .boton-terciario {
     background-color: $color-terciario;
@@ -81,4 +84,9 @@
 .icono-success {
     font-weight: bold;
     color: $color-success;
+}
+.contenido {
+    width: 100%;
+    min-height: 80vh;
+    padding: 2em 2em;
 }

@@ -14,11 +14,12 @@
 <!-- HERO -->
     <section class="hero">
         <div class="hero-contenido container-sm">
-            <img src="../Imagenes/hero.svg" alt="">
-            <div class="hero-slogan">
-                <h1 class="mb-3">Lleva tu carrera al máximo potencial</h1> 
-                <h6 class="m-0">De mano los mejores profesionales con cursos online</h6>
-            </div>            
+        <div class="hero-slogan">
+                <h1 class="mb-3">¡Has vuelto,<?php echo $inciado;?>!</h1> 
+                <h6 class="mb-4">Desarrolla tu conocimiento profesional y destaca en la competencia laboral.</h6>
+                <button class="btn borde-secundario">Ver cursos</button>
+            </div>
+            <img src="../Imagenes/lesson.svg" alt="">
         </div>                    
     </section>
 
