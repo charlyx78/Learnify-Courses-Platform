@@ -87,9 +87,25 @@
     }
 
 }
-
-
-
 .fila-login {
     margin-bottom: 1em;
+}
+
+.contenedor-pagina {
+    position: relative;
+    .toast-mensajes-login {
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
+        z-index: 2;
+    }
+}
+@media (min-width: $tablet) {
+    .toast-mensajes-login {
+        top: 2% !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: 2% !important;
+        z-index: 2;
+    }
 }

@@ -1,6 +1,3 @@
-$('document').ready(function () {
-    $('.toast').show();
-})
 $('#btnIrRegistro').click(function() {
     $('#carruselLoginRegistro').carousel('next');
 })
@@ -28,6 +25,11 @@ $('#formLogin').submit(function validacionesLogin(e) {
     !contrasena ? ($('#contrasenaLogin').addClass('is-invalid'), error++) : $('#contrasenaLogin').removeClass('is-invalid');
     if(error > 0) {
         e.preventDefault();
+    }
+    if(errorLogin == true) {
+        e.preventDefault();
+        $('.toast-body').text(errorMensajeLogin);
+        $('.toast').toast("show");
     }
 })
 $('#contrasena').on('input', function validacionContrasena() {
@@ -80,6 +82,11 @@ $('#formRegistro').submit(function validacionesRegistro(e) {
         e.preventDefault();
     }
     if (!contrasenaValida) {
+    }
+    if(errorRegistro == true) {
+        e.preventDefault();
+        $('.toast-body').text(errorMensajeRegistro);
+        $('.toast').toast("show");
     }
 })
 function removerError(e) {

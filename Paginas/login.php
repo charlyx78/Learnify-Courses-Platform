@@ -11,7 +11,7 @@
 </head>
 <body class="body-login">
 
-    <div class="contenedor-pagina container-fluid">
+    <div class="contenedor-pagina container-fluid position-relative">
 <!-- BIENVENIDA -->
         <div class="row">
             <div class="col-12 col-lg-6">
@@ -59,7 +59,7 @@
                                         <h6><a href="#" class="link-dark link-bold" id="btnIrRegistro">Regístrate ahora</a></h6>
                                     </div>
                                     <h6 class="fw-normal text-center mb-4">ó</h6>
-                                    <a href="<?= $client->createAuthUrl(); ?>" class="btn border d-flex justify-content-center align-items-center border fw-bold">
+                                    <a href="<?= $client->createAuthUrl(); ?>" class="btn border d-flex justify-content-center align-items-center border fw-bold py-3">
                                         <img src="../Imagenes//icono-google.svg" width="30" height="30" class="me-2 rounded">
                                         Inicia sesión con Google
                                     </a>
@@ -199,7 +199,14 @@
                 </div>
             </div>
         </div>
+    <div class="toast toast-mensajes-login align-items-center text-bg-danger border-0 p-2" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+        <div class="d-flex">
+            <div class="toast-body">
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
     </div>
+
 
     <script src="../script.js"></script>
 

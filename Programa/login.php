@@ -4,6 +4,8 @@
 
     if(isset($_POST["btnLogin"]))
     {
+        $errorLogin = false;
+        $errorMensajeLogin = "";
         $correo = $_POST['correoLogin'];
         $contra = $_POST['contrasenaLogin'];
 
@@ -21,20 +23,27 @@
             header("Location: ../Paginas/home.php");
             //echo "<script type='text/javascript'> alert('Sesion Iniciada Correctamente')</script>";
             }
-        else
+            else
             {
-            echo "No existe usuario";
-            //echo "<script type='text/javascript'> alert('Correo o Contraseña Incorrectos')</script>";
+                $errorLogin = true;
+                $errorMensajeLogin = "Correo o contraseña incorrectos, por favor intentélo de nuevo";
+                echo "<script> var errorMensajeLogin = '".($errorMensajeLogin)."';</script>";
+                echo "<script> var errorLogin = ".($errorLogin).";</script>";
             }
         }
         else
         {
-            echo "no hay cuentas";
+            $errorLogin = true;
+            $errorMensajeLogin = "No existe ninguna cuenta registrada en la aplicacion";
+            echo "<script> var errorMensajeLogin = '".($errorMensajeLogin)."';</script>";
+            echo "<script> var errorLogin = ".($errorLogin).";</script>";
         }
     }
 
     if(isset($_POST["btnRegistro"]))
     {
+        $errorRegistro = false;
+        $errorMensajeRegistro = "";
         $nombre = $_POST['nombre'];
         $apellidoPaterno = $_POST['apellidoPaterno'];
         $apellidoMaterno = $_POST['apellidoMaterno'];
@@ -58,8 +67,10 @@
             }
             else
             {
-                echo "Correo en uso Pa";
-                //echo "<script type='text/javascript'> alert('Correo Ya Existe')</script>";
+                $errorRegistro = true;
+                $errorMensajeRegistro = "Ya existe una cuenta con este correo electrónico";
+                echo "<script> var errorMensajeRegistro = '".($errorMensajeRegistro)."';</script>";
+                echo "<script> var errorRegistro = ".($errorRegistro).";</script>";
             }
     }
 
