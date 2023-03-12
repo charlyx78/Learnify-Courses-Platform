@@ -14,86 +14,455 @@
 <!-- HERO -->
     <section class="hero">
         <div class="hero-contenido container-sm">
-        <div class="hero-slogan">
+            <div class="hero-slogan">
                 <h1 class="mb-3">¡Has vuelto,<?php echo $inciado;?>!</h1> 
                 <h6 class="mb-4">Desarrolla tu conocimiento profesional y destaca en la competencia laboral.</h6>
-                <button class="btn borde-secundario">Ver cursos</button>
+                <button class="btn borde-secundario" id="btnVerCursos">Ver cursos</button>
             </div>
-            <img src="../Imagenes/lesson.svg" alt="">
+            <div class="d-none d-md-block">
+                <img src="../Imagenes/lesson.svg" alt="">
+            </div>
+
         </div>                    
     </section>
 
-    <main class="container-sm contenido">
-<!-- SEARCHBAR -->
-        <section class="busqueda-curso mb-4">
-            <form class="form-busqueda gap-2">
-                <input type="text" class="form-control input-busqueda mb-1" placeholder="Busca un curso...">
-                <div class="dropdown">
-                <button class="btn borde-terciario dropdown-toggle categoria-busqueda mb-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categoría
-                </button>
-                <ul class="dropdown-menu overflow-y-scroll" style="max-height: 200px;">
-                    <li><a class="dropdown-item" href="#">Nombre de categoria</a></li>
-                </ul>
-                </div>
-                <input type="submit" class="btn boton-terciario boton-busqueda" type="search" aria-label="Search" value="Buscar">                
-            </form>
-
-        </section>
-<!-- NAVEGACION CURSOS -->
-        <nav class="navegacion-home mb-5">
-            <ul class="d-flex justify-content-around w-100 p-0">
-                <li class="item-navegacion-home item-active"> <a class="link-navegacion-home" data-bs-target="#carouselCursos" data-bs-slide-to="0" href="#">Más populares</a> </li>
-                <li class="item-navegacion-home"> <a class="link-navegacion-home" data-bs-target="#carouselCursos" data-bs-slide-to="1" href="#">Mejor calificados</a> </li>
-                <li class="item-navegacion-home"> <a class="link-navegacion-home" data-bs-target="#carouselCursos" data-bs-slide-to="2" href="#">Más recientes</a> </li>
-            </ul>
-        </nav>
-
+    <main class="container-sm contenido" id="contenedorCursos">
 <!-- CURSOS -->
-        <div id="carouselCursos" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="cursos row">
-                    <a href="curso.php" class="col-12 col-md-4 col-lg-3 mb-3">
-                        <div class="curso card border-0">
-                            <div class="row">
-                                <div class="col-4 col-md-12 contenedor-imagen-curso">
-                                    <div class="img-card-top imagen-curso rounded-top" style="background-image: url(../Imagenes/base-datos.jpeg);"></div>
-                                </div>
-                                <div class="col-8 col-md-12 contenedor-cuerpo-curso">
-                                    <div class="card-body">
-                                        <h5 class="mb-1 titulo-curso"
-                                        title="Curso de modelo de administracion de datos (SQL Server)">Curso de modelo de administracion de datos (SQL Server)</h5>
-                                        <p class="text-secondary mb-1">Juan Alejandro Villareal Mojica</p>
-                                        <h6 class="m-0">$ MXN 500</h6>
-                                    </div>
-                                    <div class="card-footer d-flex border-0 bg-transparent justify-content-between">
-                                        <p class="text-secondary d-flex gap-2 mb-1"> <i class="bi bi-clock fw-bold"></i> 15 horas</p> 
-                                        <p class="text-secondary d-flex gap-2 mb-1"> <i class="bi bi-people-fill"></i></i> 20,547</p>
-                                    </div>
-                                </div>
-                            </div>                
-                            <div class="calificacion-curso position-absolute p-2">
-                                <span class="badge rounded-pill bg-light-nb"><i class="bi bi-star-fill me-2 color-calificacion"></i></i>4.5 (10,523)</span>
-                            </div>            
-                        </div>
-                    </a>                                                                                                     
+        <div class="p-4 mb-4 contenedor-seccion-cursos">
+            <div class="mb-4 d-md-flex justify-content-between align-items-end"> 
+                <div class="">
+                    <h2>Cursos populares</h2>
+                    <h6 class="text-secondary">Obtén los cursos más solicitados al mejor precio</h6>
                 </div>
+                <div class="d-none d-md-block gap-3">
+                    <button class="btn boton-terciario" type="button" data-bs-target="#carouselCursosControlsDesktop" data-bs-slide="prev">
+                        <i class="bi bi-arrow-left"></i>
+                    </button>
 
-                </div>
-                <div class="carousel-item">
-                    <h1>MEJOR CALIFICADOS</h1>
-                </div>
-                <div class="carousel-item">
-                    <h1>MAS RECIENTES</h1>
-                </div>
+                    <button class="btn boton-terciario" type="button" data-bs-target="#carouselCursosControlsDesktop" data-bs-slide="next">
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>            
             </div>
+
+<!-- CARRUSEL MOVIL -->
+            <div class="container d-md-none d-block px-0">
+                <div id="carouselCursosControls" class="carousel slide mb-2" data-bs-ride="carousel">
+                    <div class="carousel-inner carousel-inner-cursos">
+                        <div class="carousel-item active">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded-top" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-3 px-4">
+                                                    <h5 class="categoria-curso color-secundario fw-bold mb-1">Desarrollo backend</h5>
+                                                    <h4 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h4>
+                                                    <div class="text-secondary fw-medium">
+                                                        <h6 class="mb-1">Juan Villareal</h6>
+                                                        <h6 class="mb-2"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</h6>
+                                                    </div>
+
+                                                    <h5 class="m-0 color-secundario fs-2" style="font-size: 1.4em;">$500</h5>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded-top" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-3 px-4">
+                                                    <h5 class="categoria-curso color-secundario fw-bold mb-1">Desarrollo backend</h5>
+                                                    <h4 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h4>
+                                                    <div class="text-secondary fw-medium">
+                                                        <h6 class="mb-1">Juan Villareal</h6>
+                                                        <h6 class="mb-2"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</h6>
+                                                    </div>
+
+                                                    <h5 class="m-0 color-secundario fs-2" style="font-size: 1.4em;">$500</h5>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded-top" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-3 px-4">
+                                                    <h5 class="categoria-curso color-secundario fw-bold mb-1">Desarrollo backend</h5>
+                                                    <h4 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h4>
+                                                    <div class="text-secondary fw-medium">
+                                                        <h6 class="mb-1">Juan Villareal</h6>
+                                                        <h6 class="mb-2"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</h6>
+                                                    </div>
+
+                                                    <h5 class="m-0 color-secundario fs-2" style="font-size: 1.4em;">$500</h5>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded-top" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-3 px-4">
+                                                    <h5 class="categoria-curso color-secundario fw-bold mb-1">Desarrollo backend</h5>
+                                                    <h4 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h4>
+                                                    <div class="text-secondary fw-medium">
+                                                        <h6 class="mb-1">Juan Villareal</h6>
+                                                        <h6 class="mb-2"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</h6>
+                                                    </div>
+
+                                                    <h5 class="m-0 color-secundario fs-2" style="font-size: 1.4em;">$500</h5>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded-top" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-3 px-4">
+                                                    <h5 class="categoria-curso color-secundario fw-bold mb-1">Desarrollo backend</h5>
+                                                    <h4 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h4>
+                                                    <div class="text-secondary fw-medium">
+                                                        <h6 class="mb-1">Juan Villareal</h6>
+                                                        <h6 class="mb-2"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</h6>
+                                                    </div>
+
+                                                    <h5 class="m-0 color-secundario fs-2" style="font-size: 1.4em;">$500</h5>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded-top" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-3 px-4">
+                                                    <h5 class="categoria-curso color-secundario fw-bold mb-1">Desarrollo backend</h5>
+                                                    <h4 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h4>
+                                                    <div class="text-secondary fw-medium">
+                                                        <h6 class="mb-1">Juan Villareal</h6>
+                                                        <h6 class="mb-2"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</h6>
+                                                    </div>
+
+                                                    <h5 class="m-0 color-secundario fs-2" style="font-size: 1.4em;">$500</h5>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded-top" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-3 px-4">
+                                                    <h5 class="categoria-curso color-secundario fw-bold mb-1">Desarrollo backend</h5>
+                                                    <h4 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h4>
+                                                    <div class="text-secondary fw-medium">
+                                                        <h6 class="mb-1">Juan Villareal</h6>
+                                                        <h6 class="mb-2"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</h6>
+                                                    </div>
+
+                                                    <h5 class="m-0 color-secundario fs-2" style="font-size: 1.4em;">$500</h5>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded-top" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-3 px-4">
+                                                    <h5 class="categoria-curso color-secundario fw-bold mb-1">Desarrollo backend</h5>
+                                                    <h4 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h4>
+                                                    <div class="text-secondary fw-medium">
+                                                        <h6 class="mb-1">Juan Villareal</h6>
+                                                        <h6 class="mb-2"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</h6>
+                                                    </div>
+
+                                                    <h5 class="m-0 color-secundario fs-2" style="font-size: 1.4em;">$500</h5>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>                                                                                                                                                                                                                                                                                                                                                           
+            </div>    
+
+<!-- CARRUSEL ESCRITORIO -->
+            <div class="container d-none d-md-block px-0">
+                <div id="carouselCursosControlsDesktop" class="carousel slide mb-2" data-bs-ride="carousel">
+                    <div class="carousel-inner carousel-inner-cursos">
+                        <div class="carousel-item active">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12 col-md-3">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-4 col-md-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-8 col-md-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-2">
+                                                    <h5 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h5>
+                                                    <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
+                                                        <p>Juan Villareal</p>
+                                                        <p><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
+                                                    </div>
+
+                                                    <h6 class="m-0 color-secundario fs-3" style="font-size: 1.4em;">$500</h6>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                                <a href="curso.php" class="col-12 col-md-3">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-4 col-md-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-8 col-md-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-2">
+                                                    <h5 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h5>
+                                                    <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
+                                                        <p>Juan Villareal</p>
+                                                        <p><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
+                                                    </div>
+
+                                                    <h6 class="m-0 color-secundario fs-3" style="font-size: 1.4em;">$500</h6>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                                <a href="curso.php" class="col-12 col-md-3">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-4 col-md-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-8 col-md-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-2">
+                                                    <h5 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h5>
+                                                    <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
+                                                        <p>Juan Villareal</p>
+                                                        <p><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
+                                                    </div>
+
+                                                    <h6 class="m-0 color-secundario fs-3" style="font-size: 1.4em;">$500</h6>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                                <a href="curso.php" class="col-12 col-md-3">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-4 col-md-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-8 col-md-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-2">
+                                                    <h5 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h5>
+                                                    <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
+                                                        <p>Juan Villareal</p>
+                                                        <p><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
+                                                    </div>
+
+                                                    <h6 class="m-0 color-secundario fs-3" style="font-size: 1.4em;">$500</h6>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="cursos row">
+                                <a href="curso.php" class="col-12 col-md-3">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-4 col-md-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-8 col-md-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-2">
+                                                    <h5 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h5>
+                                                    <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
+                                                        <p>Juan Villareal</p>
+                                                        <p><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
+                                                    </div>
+
+                                                    <h6 class="m-0 color-secundario fs-3" style="font-size: 1.4em;">$500</h6>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                                <a href="curso.php" class="col-12 col-md-3">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-4 col-md-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-8 col-md-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-2">
+                                                    <h5 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h5>
+                                                    <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
+                                                        <p>Juan Villareal</p>
+                                                        <p><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
+                                                    </div>
+
+                                                    <h6 class="m-0 color-secundario fs-3" style="font-size: 1.4em;">$500</h6>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                                <a href="curso.php" class="col-12 col-md-3">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-4 col-md-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-8 col-md-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-2">
+                                                    <h5 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h5>
+                                                    <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
+                                                        <p>Juan Villareal</p>
+                                                        <p><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
+                                                    </div>
+
+                                                    <h6 class="m-0 color-secundario fs-3" style="font-size: 1.4em;">$500</h6>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                                <a href="curso.php" class="col-12 col-md-3">
+                                    <div class="curso card border">
+                                        <div class="row">
+                                            <div class="col-4 col-md-12 contenedor-imagen-curso">
+                                                <div class="imagen-curso rounded" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                            </div>
+                                            <div class="col-8 col-md-12 contenedor-cuerpo-curso">
+                                                <div class="card-body pt-2">
+                                                    <h5 class="mb-1 titulo-curso"
+                                                    title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h5>
+                                                    <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
+                                                        <p>Juan Villareal</p>
+                                                        <p><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
+                                                    </div>
+
+                                                    <h6 class="m-0 color-secundario fs-3" style="font-size: 1.4em;">$500</h6>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>                                                                                                                                                                                                                                                                                                                                                               
+            </div>    
+
+            <div class="d-md-none d-flex justify-content-around gap-3 ">
+                <button class="btn" type="button" data-bs-target="#carouselCursosControls" data-bs-slide="prev">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <button class="btn" type="button" data-bs-target="#carouselCursosControls" data-bs-slide="next">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>  
         </div>
+
     </main>
 
 <?php include ('../footer.php'); ?>
 
 <script src="../script.js"></script>
+<script src="../src/js/home.js"></script>
 
 </body>
 </html>

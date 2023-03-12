@@ -103,26 +103,26 @@ navItems.on('click', function() {
 });
 
 $('document').ready(function(){
-    var maxTituloCurso = 40;
-    var maxTestimonial = 144;
-    var titulosCurso = document.querySelectorAll('.titulo-curso')
-    var testimoniales = document.querySelectorAll('.texto-testimonial')
-    titulosCurso.forEach((tituloCurso) => {
-        if(tituloCurso.textContent.length > maxTituloCurso) {
-            tituloCurso.textContent = tituloCurso.textContent.substring(0, maxTituloCurso) + "...";
-        }
-        else {
-            tituloCurso.textContent = tituloCurso.textContent;
-        }
+    // var maxTituloCurso = 25;
+    // var maxTestimonial = 144;
+    // var titulosCurso = document.querySelectorAll('.titulo-curso')
+    // var testimoniales = document.querySelectorAll('.texto-testimonial')
+    // titulosCurso.forEach((tituloCurso) => {
+    //     if(tituloCurso.textContent.length > maxTituloCurso) {
+    //         tituloCurso.textContent = tituloCurso.textContent.substring(0, maxTituloCurso) + "...";
+    //     }
+    //     else {
+    //         tituloCurso.textContent = tituloCurso.textContent;
+    //     }
 
-    });
-    testimoniales.forEach((testimonial) => {
-        if(testimonial.textContent.length > maxTestimonial) {
-            testimonial.textContent = testimonial.textContent.substring(0, maxTestimonial) + "...";
-        }
-        else {
-            testimonial.textContent = testimonial.textContent;
-        }
-    });
+    // });
+    // testimoniales.forEach((testimonial) => {
+    //     if(testimonial.textContent.length > maxTestimonial) {
+    //         testimonial.textContent = testimonial.textContent.substring(0, maxTestimonial) + "...";
+    //     }
+    //     else {
+    //         testimonial.textContent = testimonial.textContent;
+    //     }
+    // });
 });
 

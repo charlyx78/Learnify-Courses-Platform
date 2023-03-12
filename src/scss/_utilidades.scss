@@ -2,11 +2,17 @@
 .color-primario {
     color: $color-primario;
 }
+.color-secundario {
+    color: $color-secundario-hover;
+}
 .color-light {
     color: $color-light;
 }
 .color-success {
     color: $color-success;
+}
+.color-star {
+    color: $color-star;
 }
 .bg-light-nb {
     background-color: $color-light;
@@ -42,10 +48,10 @@
     }
 }
 .borde-secundario {
-    border: 1px solid $color-secundario;
+    border: 2px solid $color-secundario;
     color: $color-dark;
     &:hover {
-        border: 1px solid $color-secundario;
+        border: 2px solid $color-secundario;
     }
 }
 .boton-terciario {

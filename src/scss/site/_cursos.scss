@@ -3,8 +3,8 @@
     background: linear-gradient($color-primario, #225258);
     padding: 2em 0;
     .hero-contenido {
-        height: 30vh;
-        width: 100%;
+        height: 40vh;
+        width: 80%;
         display: flex;
         align-items: center; 
         gap: 1em;
@@ -16,10 +16,10 @@
             color: $color-light;
         }
         h1 {
-            font-size: 1.4em;
+            font-size: 2em;
         }
         h6 {
-            font-size: 0.8em;
+            font-size: 1em;
         }
         button {
             color: $color-secundario;
@@ -30,7 +30,7 @@
     @media (min-width: $tablet) {
         .hero-contenido {
             gap: 2em;
-            height: 40vh;
+            height: 60vh;
             img {
                 width: 20em;
             }
@@ -49,7 +49,7 @@
     @media (min-width: $desktop) {
         .hero-contenido {
             gap: 3em;
-            height: 60vh;
+            height: 90vh;
             img {
                 width: 40em;
             }
@@ -67,18 +67,6 @@
     }
 }
 
-.form-busqueda {
-    display: block;
-    .input-busqueda  {
-        width: 100%;
-    }
-    .categoria-busqueda {
-        width: 100%;
-    }
-    .boton-busqueda {
-        width: 100%;
-    }
-}
 @media (min-width: $tablet) {
     .form-busqueda {
         display: flex;
@@ -117,9 +105,9 @@
     }
     .contenedor-cuerpo-curso {
         padding-left: 0;
-        .titulo-curso {
-            height: 40px;
-        }
+    }
+    .titulo-curso {
+        margin-bottom: 1em;
     }
     @media (min-width: $tablet) {
         .contenedor-imagen-curso {
@@ -127,33 +115,61 @@
         }
         .contenedor-cuerpo-curso {
             padding-left: 0.75em;
-            .titulo-curso {
-                height: 70px;
-            }
         }
     }
-    @media (min-width: $desktop) {
-        .contenedor-cuerpo-curso {
-            .titulo-curso {
-                height: 60px;
-            }
+    .contenedor-imagen-curso {
+        .imagen-curso {
+            height : 158px;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
         }
     }
-    .imagen-curso {
-        height : 158px;
-        width: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
+    @media (min-width: $tablet) {
+        .contenedor-imagen-curso {
+            padding: 0.8em 1.5em 0.8em 1.5em;
+        }
     }
+
     .calificacion-curso {
-        bottom: 0; 
-        left: 0;
+        bottom: 2; 
+        left: 2;
     }
     @media (min-width: $tablet) {
         .calificacion-curso {
             top: 0; 
             left: 0;
         }
+    }
+}
+.boton-ver-mas-cursos {
+    width: 100%;
+}
+@media (min-width: $tablet) {
+    .boton-ver-mas-cursos {
+        width: 30%;
+    }
+}
+@media (min-width: $desktop) {
+    #contenedorCursos {
+        padding-top: 4em;
+    }
+    .cursos {
+        position: relative;
+        margin-bottom: 2em;
+        .fondo-seccion-cursos {
+            width: 80vw;
+            margin: 0 auto;
+            height: 100px;
+            border-radius: 2em;
+            background-color: $color-terciario;
+            position: absolute;
+            bottom: -2%;
+            z-index: -1;
+        }
+    }
+    .boton-ver-mas-cursos {
+        width: 20%;
     }
 }

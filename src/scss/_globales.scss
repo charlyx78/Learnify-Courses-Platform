@@ -12,6 +12,18 @@ h3, h4, h5, h6, p, label, input, a, li, button, .btn {
 h1, h2 {
     font-weight: 800;
 }
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.6em;
+}
+h3 {
+    font-size: 1.4em;
+}
+h4 {
+    font-size: 1.2em;
+}
 h5 {
     font-size: 1em;
 }
@@ -64,4 +76,10 @@ ul {
 a {
     text-decoration: none;
     color: $color-dark;
+}
+.carousel-control-next:focus, .carousel-control-next:hover, .carousel-control-prev:focus, .carousel-control-prev:hover {
+    opacity: 1;
+}
+.carousel-control-next, .carousel-control-prev {
+    opacity: 1;
 }

@@ -11,6 +11,20 @@
     a {
         color: $color-secundario;
     }
+    .form-busqueda {
+        display: block;
+        .input-busqueda  {
+            width: 90%;
+        }
+        .categoria-busqueda {
+            width: 100%;
+        }
+        .boton-busqueda {
+            width: 10%;
+            text-align: center;
+            padding: 0;
+        }
+    }
     .botones-login-registro {
         a {
             color: $color-dark;
@@ -19,4 +33,17 @@
             color: $color-secundario;
         }
     }
+    @media (min-width: $tablet) {
+        .botones-login-registro {
+            justify-content: end;
+        }
+    }
+}
+.menu-nav {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.input-busqueda {
+    width: 100%;
 }

@@ -41,7 +41,7 @@
 <!-- LOGIN -->
                                 <div class="carousel-item active">
                                     <h2 class="fw-bold mb-4">Inicia sesión</h2>
-                                    <form action="#" class="formulario-login" id="formLogin" method="POST">
+                                    <form action="" class="formulario-login" id="formLogin" method="POST">
                                         <label for="correoLogin">Correo electrónico</label>
                                         <input type="text" name="correoLogin" id="correoLogin" class="form-control mb-2" oninput="removerError(event)">
                                         <div id="correoFeedback" class="invalid-feedback mb-1">
