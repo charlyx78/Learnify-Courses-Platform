@@ -6,7 +6,7 @@ $result2= mysqli_query($con, $query);
 if($result2->num_rows > 0)
 {
     $row = $result2->fetch_assoc();
-    $Iniciado = $row['correo'];
+    $Iniciado = $row['nombre'];
     $_SESSION['nombre'] = $Iniciado;
     header("Location: ../Paginas/home.php");
 }
