@@ -1,4 +1,17 @@
-<?php include('../Programa/login.php'); ?>
+<?php include('../Programa/PregistroAPI.php'); 
+
+
+$query = "select * from usuarios where correo = '$email'";
+$result2= mysqli_query($con, $query);
+if($result2->num_rows > 0)
+{
+    $row = $result2->fetch_assoc();
+    $Iniciado = $row['correo'];
+    $_SESSION['nombre'] = $Iniciado;
+    header("Location: ../Paginas/home.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +28,7 @@
                 <h2 class="fw-bold text-center">Regístrate</h2>
             </div>
             <div class="card-body">
-                <form action="#" class="formulario-registro mt-4" id="formRegistro" method="POST">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="formulario-registro mt-4" id="formRegistro" method="POST">
                     <!-- <div class="contendor-subir-imagen d-flex flex-column align-items-center">
                         <div class="contenedor-foto-perfil mb-2">
                             <div class="preview-imagen" id="imgPreview"></div>
@@ -26,14 +39,14 @@
                     <div class="row fila-login">
                         <div class="col-12 col-lg-4 fila-login">
                             <label for="nombre">Nombre(s)</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" oninput="removerError(event)" value="<?php echo($nombre);?>" disabled>
+                            <input type="text" name="nombre" id="nombre" class="form-control" oninput="removerError(event)" value="<?php echo($nombre);?>">
                             <div id="nombreFeedback" class="invalid-feedback mb-1">
                                 Escriba su nombre, por favor.
                             </div>
                         </div>
                         <div class="col-6 col-lg-4">
                             <label for="apellido">Apellido paterno</label>
-                            <input type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control mb-2" oninput="removerError(event)" value="<?php echo($apellidoPaterno);?>" disabled>
+                            <input type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control mb-2" oninput="removerError(event)" value="<?php echo($apellidoPaterno);?>">
                             <div id="apellidoPaternoFeedback" class="invalid-feedback mb-1">
                                 Escriba su apellido paterno, por favor.
                             </div>
@@ -72,7 +85,7 @@
                     <div class="row fila-login">
                         <div class="col">
                             <label for="correo">Correo electrónico</label>
-                            <input type="email" name="correo" id="correo" class="form-control mb-2" oninput="removerError(event)" value="<?php echo($email);?>" disabled>
+                            <input type="email" name="correo" id="correo" class="form-control mb-2" oninput="removerError(event)" value="<?php echo($email);?>">
                             <div id="correoFeedback" class="invalid-feedback mb-1">
                                 Escriba un correo, por favor.
                             </div>
@@ -105,6 +118,6 @@
             </div>
         </div>
     </div>
-    <script src="../script.js"></script>
+    <!-- <script src="../script.js"></script> -->
 </body>
 </html>

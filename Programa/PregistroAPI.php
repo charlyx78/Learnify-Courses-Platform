@@ -1,46 +1,8 @@
 <?php
-    session_start();
-    include("db.php");
+session_start();
+include("db.php");
 
-    if(isset($_POST["btnLogin"]))
-    {
-        $errorLogin = false;
-        $errorMensajeLogin = "";
-        $correo = $_POST['correoLogin'];
-        $contra = $_POST['contrasenaLogin'];
-
-        $query= "select * from usuarios where correo = '$correo' and contrasena = '$contra'";
-        $result= mysqli_query($con, $query);
-
-        if($result)
-        {
-            if($result->num_rows > 0)
-            {
-            $row = $result->fetch_assoc();
-            $Iniciado = $row['nombre'];
-
-            $_SESSION['nombre'] = $Iniciado;
-            header("Location: ../Paginas/home.php");
-            //echo "<script type='text/javascript'> alert('Sesion Iniciada Correctamente')</script>";
-            }
-            else
-            {
-                $errorLogin = true;
-                $errorMensajeLogin = "Correo o contraseña incorrectos, por favor intentélo de nuevo";
-                echo "<script> var errorMensajeLogin = '".($errorMensajeLogin)."';</script>";
-                echo "<script> var errorLogin = ".($errorLogin).";</script>";
-            }
-        }
-        else
-        {
-            $errorLogin = true;
-            $errorMensajeLogin = "No existe ninguna cuenta registrada en la aplicacion";
-            echo "<script> var errorMensajeLogin = '".($errorMensajeLogin)."';</script>";
-            echo "<script> var errorLogin = ".($errorLogin).";</script>";
-        }
-    }
-
-    if(isset($_POST["btnRegistro"]))
+if(isset($_POST["btnRegistro"]))
     {
         echo "<script type='text/javascript'> alert('ei')</script>";
         $errorRegistro = false;
@@ -65,6 +27,7 @@
                 $result2= mysqli_query($con, $query2);
                 $_SESSION['nombre'] = $nombre;
                 echo $_SESSION['nombre'];
+                header("Location: ../Paginas/home.php");
             }
             else
             {
@@ -115,4 +78,5 @@
 
     }
 
-?>
+
+ ?>
