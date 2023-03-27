@@ -1,7 +1,7 @@
 <?php
-$serverDB = "127.0.0.1:3307";
+$serverDB = "127.0.0.1:3308";
 $userDB = "root";
-$passwordDB = "root";
+$passwordDB = "";
 $databaseDB = "webintermedia";
 
     $con = mysqli_connect($serverDB, $userDB, $passwordDB, $databaseDB);
