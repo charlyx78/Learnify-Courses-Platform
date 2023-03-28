@@ -8,6 +8,7 @@ if($result2->num_rows > 0)
     $row = $result2->fetch_assoc();
     $Iniciado = $row['nombre'];
     $_SESSION['nombre'] = $Iniciado;
+    $_SESSION['tipoCuenta'] = $row['tipoCuenta'];
     header("Location: ../Paginas/home.php");
 }
 

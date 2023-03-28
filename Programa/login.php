@@ -20,6 +20,7 @@
             $Iniciado = $row['nombre'];
 
             $_SESSION['nombre'] = $Iniciado;
+            $_SESSION['tipoCuenta'] = $row['tipoCuenta'];
             header("Location: ../Paginas/home.php");
             //echo "<script type='text/javascript'> alert('Sesion Iniciada Correctamente')</script>";
             }

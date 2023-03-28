@@ -15,20 +15,26 @@
                     <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
                 </li>
 <!-- OPCIONES NAVBAR ALUMNO -->
+<?php if ($_SESSION['tipoCuenta'] == 0) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="kardex.php">Kardex</a>
                 </li>
+<?php }?>      
 <!-- OPCIONES NAVBAR MAESTRO -->
+<?php if ($_SESSION['tipoCuenta'] == 1) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="ventas.php">Ventas</a>
                 </li>
+<?php }?>   
 <!-- OPCIONES NAVBAR ADMIN -->
+<?php if ($_SESSION['tipoCuenta'] == 2) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="kardex.php">Administrar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="reportes.php">Reportes</a>
                 </li>
+<?php }?>
             </ul>
 
             <ul class="navbar-nav col-md-5 col-lg-8">
