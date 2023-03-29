@@ -67,7 +67,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item d-flex align-items-center gap-3" href="mensajes.php">Mensajes<span class="badge bg-danger">1</span>
                         </a></li>
-                        <li><a class="dropdown-item" href="#">Mi cuenta</a></li>
+                        <li><a class="dropdown-item" href="cuenta.php">Mi cuenta</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="../Programa/logout.php">Cerrar sesión <i class="bi bi-box-arrow-right ms-2"></i></a></li>
                     </ul>
