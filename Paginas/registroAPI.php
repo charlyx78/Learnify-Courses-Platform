@@ -9,6 +9,12 @@ if($result2->num_rows > 0)
     $Iniciado = $row['nombre'];
     $_SESSION['nombre'] = $Iniciado;
     $_SESSION['tipoCuenta'] = $row['tipoCuenta'];
+    $_SESSION['apellidoPaterno'] = $row['apellidoPaterno'];
+    $_SESSION['apellidoMaterno'] = $row['apellidoMaterno'];
+    $_SESSION['genero'] = $row['genero'];
+    $_SESSION['fechaNacimiento'] = $row['fechaNacimiento'];
+    $_SESSION['correo'] = $row['correo'];
+    $_SESSION['contrasena'] = $row['contra'];
     header("Location: ../Paginas/home.php");
 }
 

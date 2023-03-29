@@ -4,7 +4,6 @@ include("db.php");
 
 if(isset($_POST["btnRegistro"]))
     {
-        echo "<script type='text/javascript'> alert('ei')</script>";
         $errorRegistro = false;
         $errorMensajeRegistro = "";
         $nombre = $_POST['nombre'];
@@ -43,10 +42,10 @@ if(isset($_POST["btnRegistro"]))
     // Se declaran las credenciales de la API de Google
     $clientID = '539426120680-lvogna6eo124iulgdv6sfg83nujce42n.apps.googleusercontent.com';
     $clientSecret = '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';
-    $redirectUri = 'http://localhost/learnify/Paginas/registroAPI.php';
+    $redirectUri = 'http://localhost:8080/learnify/Paginas/registroAPI.php';
 
 
-    //http://localhost:8080/learnify/Paginas/registroapi.php
+    //http://localhost:8080/learnify/Paginas/registroAPI.php
 
     // Se crea una instancia del cliente de Google
     $client = new Google\Client();

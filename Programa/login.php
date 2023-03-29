@@ -17,10 +17,15 @@
             if($result->num_rows > 0)
             {
             $row = $result->fetch_assoc();
-            $Iniciado = $row['nombre'];
 
-            $_SESSION['nombre'] = $Iniciado;
+            $_SESSION['nombre'] = $row['nombre'];
             $_SESSION['tipoCuenta'] = $row['tipoCuenta'];
+            $_SESSION['apellidoPaterno'] = $row['apellidoPaterno'];
+            $_SESSION['apellidoMaterno'] = $row['apellidoMaterno'];
+            $_SESSION['genero'] = $row['genero'];
+            $_SESSION['fechaNacimiento'] = $row['fechaNacimiento'];
+            $_SESSION['correo'] = $row['correo'];
+            $_SESSION['contrasena'] = $row['contrasena'];
             header("Location: ../Paginas/home.php");
             //echo "<script type='text/javascript'> alert('Sesion Iniciada Correctamente')</script>";
             }
@@ -43,7 +48,6 @@
 
     if(isset($_POST["btnRegistro"]))
     {
-        echo "<script type='text/javascript'> alert('ei')</script>";
         $errorRegistro = false;
         $errorMensajeRegistro = "";
         $nombre = $_POST['nombre'];
@@ -81,10 +85,10 @@
     // Se declaran las credenciales de la API de Google
     $clientID = '539426120680-lvogna6eo124iulgdv6sfg83nujce42n.apps.googleusercontent.com';
     $clientSecret = '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';
-    $redirectUri = 'http://localhost/learnify/Paginas/registroAPI.php';
+    $redirectUri = 'http://localhost:8080/learnify/Paginas/registroAPI.php';
 
 
-    //http://localhost:8080/learnify/Paginas/registroapi.php
+    //http://localhost:8080/learnify/Paginas/registroAPI.php
 
     // Se crea una instancia del cliente de Google
     $client = new Google\Client();
