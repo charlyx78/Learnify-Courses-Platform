@@ -69,7 +69,6 @@
                 values ('$nombre','$apellidoPaterno','$apellidoMaterno','$genero','$fechaNacimiento','$correo', '$contra','$tipoCuenta')";
                 $result2= mysqli_query($con, $query2);
                 $_SESSION['nombre'] = $nombre;
-                echo $_SESSION['nombre'];
             }
             else
             {
@@ -85,7 +84,7 @@
     // Se declaran las credenciales de la API de Google
     $clientID = '539426120680-lvogna6eo124iulgdv6sfg83nujce42n.apps.googleusercontent.com';
     $clientSecret = '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';
-    $redirectUri = 'http://localhost:8080/learnify/Paginas/registroAPI.php';
+    $redirectUri = 'http://localhost/Learnify/Paginas/registroAPI.php';
 
 
     //http://localhost:8080/learnify/Paginas/registroAPI.php

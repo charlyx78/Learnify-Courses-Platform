@@ -59,7 +59,7 @@
                                         <h6><a href="#" class="link-dark link-bold" id="btnIrRegistro">Regístrate ahora</a></h6>
                                     </div>
                                     <h6 class="fw-normal text-center mb-4">ó</h6>
-                                    <a href="<?= $client->createAuthUrl(); ?>" class="btn border d-flex justify-content-center align-items-center border fw-bold py-3">
+                                    <a href="<?= $client->createAuthUrl(); ?>" class="btn border d-flex justify-content-center align-items-center border fw-bold py-2">
                                         <img src="../Imagenes//icono-google.svg" width="30" height="30" class="me-2 rounded">
                                         Inicia sesión con Google
                                     </a>
@@ -175,11 +175,11 @@
                                                 <div class="mb-4 d-flex card border-0 shadow-sm">
                                                     <div class="card-body">
                                                         <div class="form-check mb-2">
-                                                            <input type="radio" class="form-check-input" id="tipoCuentaEstudiante" name="tipoCuenta" value="estudiante" oninput="removerError(event)">
+                                                            <input type="radio" class="form-check-input" id="tipoCuentaEstudiante" name="tipoCuenta" value="0" oninput="removerError(event)">
                                                             <label for="estudiante" class="form-check-label">Estudiante</label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input type="radio" class="form-check-input" id="tipoCuentaMaestro" name="tipoCuenta" value="maestro" oninput="removerError(event)">
+                                                            <input type="radio" class="form-check-input" id="tipoCuentaMaestro" name="tipoCuenta" value="1" oninput="removerError(event)">
                                                             <label for="maestro" class="form-check-label">Maestro</label>
                                                             <div id="tipoCuentaFeedback" class="invalid-feedback mb-2">
                                                                 Seleccione un tipo de cuenta, por favor.

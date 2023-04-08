@@ -10,52 +10,35 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse row menu-nav" id="navbarNav">
-            <ul class="navbar-nav col-md-3 col-lg-2">
+            <ul class="navbar-nav col-6">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="home.php">Inicio</a>
                 </li>
 <!-- OPCIONES NAVBAR ALUMNO -->
-<?php if ($_SESSION['tipoCuenta'] == 0) { ?>
+                <?php if ($_SESSION['tipoCuenta'] == 0) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="kardex.php">Kardex</a>
                 </li>
-<?php }?>      
+                <?php }?>      
 <!-- OPCIONES NAVBAR MAESTRO -->
-<?php if ($_SESSION['tipoCuenta'] == 1) { ?>
+                <?php if ($_SESSION['tipoCuenta'] == 1) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="ventas.php">Ventas</a>
                 </li>
-<?php }?>   
+                <?php }?>   
 <!-- OPCIONES NAVBAR ADMIN -->
-<?php if ($_SESSION['tipoCuenta'] == 2) { ?>
+                <?php if ($_SESSION['tipoCuenta'] == 2) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="kardex.php">Administrar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="reportes.php">Reportes</a>
                 </li>
-<?php }?>
+                <?php }?>
             </ul>
 
-            <ul class="navbar-nav col-md-5 col-lg-8">
-                <!-- SEARCHBAR -->
-                <section class="busqueda-curso w-100">
-                    <form class="form-busqueda gap-1 d-flex">
-                        <input type="text" class="form-control input-busqueda bg-light-nb border-0" placeholder="Busca un curso...">
-                        <div class="dropdown">
-                        <!-- <button class="btn borde-terciario dropdown-toggle categoria-busqueda mb-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categoría
-                        </button>
-                        <ul class="dropdown-menu overflow-y-scroll" style="max-height: 200px;">
-                            <li><a class="dropdown-item" href="#">Nombre de categoria</a></li>
-                        </ul> -->
-                        </div>
-                        <button type="search" class="btn boton-terciario boton-busqueda" aria-label="Search"> <i class="bi bi-search"></i> </button>                
-                    </form>
-                </section>
-            </ul>
 
-            <ul class="navbar-nav d-flex flex-row botones-login-registro col-md-4 col-lg-2">
+            <ul class="navbar-nav d-flex flex-row botones-login-registro col-6">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center dropdown-cuenta" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">  
                     <?php echo $inciado; ?>
