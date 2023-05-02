@@ -1,0 +1,12 @@
+@import 'variables';
+
+.contenedor-preview {
+    height: 250px;
+    width: 100%;
+    border: 1px solid $color-terciario;
+}
+.videopromo-preview {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}

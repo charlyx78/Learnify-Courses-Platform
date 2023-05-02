@@ -15,20 +15,20 @@
     <main class="container-sm contenido" id="contenedorCursos">
 
     <!-- HERO -->
-    <section class="hero bg-primario px-5 px-md-4 py-4 py-md-2 mb-4 rounded">
+    <section class="hero bg-primario px-5 px-md-4 py-4 py-md-2 mb-5 rounded">
         <div class="hero-contenido container-sm">
             <div class="row align-items-center">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-lg-8">
                     <h2>Has vuelto, <?php echo $inciado;?>!</h2>
                     <h4 class="mb-3">¿Qué quieres aprender hoy?</h4> 
                     <form action="">
                         <div class="row">
-                            <div class="col-7 d-flex">
+                            <div class="col-12 col-lg-7 mb-3 d-flex">
                                 <input type="text" name="txtBusquedaCurso" class="form-control position-relative">
                                 <button type="submit" class="btn boton-terciario position-absolute rounded-start" id="btnVerCursos"><i class="bi bi-search"></i></button>
                             </div>
-                            <div class="col-4">
-                                <button type="submit" class="btn boton-terciario" id="btnBusqAvan">Búsqueda avanzada</button>
+                            <div class="col-12 col-lg-4">
+                                <button type="submit" class="btn boton-terciario w-100" id="btnBusqAvan">Búsqueda avanzada</button>
                             </div>
                         </div>
                     </form>
@@ -46,29 +46,29 @@
     <section class="buscador-cursos bg-light rounded-bottom border mb-5 px-4 py-4" style="display:none;">
         <form action="">
             <div class="row">
-                <div class="col-3">
+                <div class="col-6 col-lg-3">
                     <label for="nombreCurso">Nombre del curso</label>
                     <input type="text" name="nombreCurso" class="form-control">
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-lg-3">
                 <label for="categoriaCurso">Categoría</label>
                     <select name="categoriaCurso" class="form-control">
                         <option value="">Selecciona una categoría</option>
                     </select>
                 </div>
-                <div class="col-2">
+                <div class="col-12 col-lg-2">
                     <label for="nombreCurso">Nombre del profesor</label>
                     <input type="text" name="nombreCurso" class="form-control">
                 </div>
-                <div class="col-2">
+                <div class="col-6 col-lg-2">
                     <label for="inicioRangoFechaCurso">Desde</label>
                     <input type="date" name="inicioRangoFechaCurso" class="form-control">
                 </div>
-                <div class="col-2 mb-2">
+                <div class="col-6 col-lg-2 mb-3">
                     <label for="finRangoFechaCurso">Hasta</label>
                     <input type="date" name="finRangoFechaCurso" class="form-control">
                 </div>
-                <div class="col-12">
+                <div class="col-lg-12">
                     <button type="submit" class="btn boton-terciario w-100">Buscar</button>
                 </div>
             </div>
@@ -76,8 +76,8 @@
     </section>
 
 <!-- CURSOS -->
-    <section class="contenedor-cursos-populares mt-5">
-        <h4 class="mb-4">Cursos populares</h4>
+    <section class="contenedor-cursos-populares mt-4">
+        <h4 class="mb-3">Cursos populares</h4>
         <div class="row">
             <?php for($i=0; $i<=3; $i++) { ?>
                 <div class="col-12 col-md-4 col-lg-3 mb-4">
@@ -110,8 +110,8 @@
             <?php } ?>
         </div>                                                                                                                                                                                                                                                                                                                                          
     </section>      
-    <section class="contenedor-cursos-vendidos mt-5">
-        <h4 class="mb-4">Cursos más vendidos</h4>
+    <section class="contenedor-cursos-vendidos mt-4">
+        <h4 class="mb-3">Cursos más vendidos</h4>
         <div class="row">
             <?php for($i=0; $i<=3; $i++) { ?>
                 <div class="col-12 col-md-4 col-lg-3 mb-4">
@@ -144,8 +144,8 @@
             <?php } ?>
         </div>                                                                                                                                                                                                                                                                                                                                          
     </section>      
-    <section class="contenedor-cursos-recientes mt-5">
-        <h4 class="mb-4">Cursos más recientes</h4>
+    <section class="contenedor-cursos-recientes mt-4">
+        <h4 class="mb-3">Cursos más recientes</h4>
         <div class="row">
             <?php for($i=0; $i<=3; $i++) { ?>
                 <div class="col-12 col-md-4 col-lg-3 mb-4">

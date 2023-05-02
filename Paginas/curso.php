@@ -11,117 +11,152 @@
 
     <?php include('../navbar.php'); ?>
 
-
-<main class="container-sm mt-5">
-<!-- TITULO -->
-    <div class="header-curso-view row mb-4">
-        <div class="col-12">
-            <h3 class="mb-2 fw-bolder">Curso de modelo de administracion de datos (SQL Server)</h3>
-        </div>
-        <div class="col-12 col-md-9">
-            <h4 class="precio-curso-view fw-bold mb-2">$500 MXN</h4>
-        </div>
-        <div class="col-12 col-md-3 mb-4">
-            <button class="btn boton-secundario w-100">Comprar</button>
-        </div>
-<!-- IMAGEN -->
-        <div class="col-12 imagen-curso-view mb-3" style="background-image: url(../Imagenes/base-datos.jpeg);">
-            <div class="categorias-curso-view w-100 row p-3 d-flex align-items-center justify-content-between">
-                <div class="d-flex gap-2  col-12">
-                    <h6><span class="badge bg-secundario">Tecnologia</span></h6>
-                    <h6><span class="badge bg-secundario">Bases de datos</span></h6>
-                    <h6><span class="badge bg-secundario">Programacion</span></h6>
-                </div>
-                <div class="color-light col-12">
-                    <h6><span class="badge bg-primario"><i class="bi bi-star-fill me-2"></i>4.5 (10,523)</span></h6>
+    <div class="contenedor-curso-info">
+        <div class="container">
+        <div class="contenido-curso row position-absolute w-75 bg-primario">
+            <div class="col-8">
+                <div class="contenido-curso-info mb-5">
+                    <h3 class="mb-3 fw-bold">Curso de modelo de administración de datos (SQL Server)</h3>
+                    <div class="instructor-curso mb-5 d-flex align-items-center">
+                        <img src="../Imagenes/avatar.svg" class="rounded-circle me-4" width="40" height="40" alt="">
+                        <h5 class="m-0">Juan Alejandro Villarreal Mojica</h5>
+                    </div>
+                    <h5 class="mb-3" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci provident iure harum ad quod sit neque? Temporibus doloribus ad pariatur, quibusdam perferendis explicabo! Facilis dolores alias voluptatibus est doloremque laborum.</h5>
+                    <div class="info-curso">
+                        <div class="col-12 hstack item-detalle-curso-view gap-2">      
+                            <h6 class="d-flex align-items-center gap-2">
+                                <i class="bi bi-star-fill me-2 color-star"></i>
+                                4.5 (10,523)
+                            </h6>
+                            <div class="vr"></div>
+                            <h6 class="d-flex align-items-center gap-2">
+                                <i class="bi bi-book"></i>
+                                100 Leciones
+                            </h6>
+                            <div class="vr"></div>
+                            <h6 class="d-flex align-items-center gap-2">
+                                <i class="bi bi-clock"></i>
+                                15 Horas
+                            </h6>
+                            <div class="vr"></div>
+                            <h6 class="d-flex align-items-center gap-2">
+                                <i class="bi bi-person-fill"></i>
+                                10547 Alumnos
+                            </h6>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-12 hstack d-flex justify-content-end item-detalle-curso-view gap-2">
-
-            <h5 class="d-flex align-items-center gap-2">
-                <i class="bi bi-book"></i>
-                100 Leciones
-            </h5>
-            <div class="vr"></div>
-            <h5 class="d-flex align-items-center gap-2">
-                <i class="bi bi-clock"></i>
-                15 Horas
-            </h5>
-            <div class="vr"></div>
-            <h5 class="d-flex align-items-center gap-2">
-                <i class="bi bi-person-fill"></i>
-                10547 Alumnos
-            </h5>
         </div>
+        <div class="container">
+        <div class="row position-relative d-flex justify-content-end" style="top: 0; left: 0;">
+            <div class="col-3">
+                <div class="contenido-comprar-curso">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../Imagenes/base-datos.jpeg" width="100%" class="mb-2" alt="">
+                            <h4 class="text-dark text-end">$500 MXN</h4>
+                            <button type="button" class="btn boton-secundario w-100 mb-3">Comprar ahora</button>
+                            <div class="incluye-curso">
+                                <h5 class="text-dark">Este curso incluye</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <i class="bi bi-camera-video-fill text-secondary me-2"></i>
+                                        5 videos
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="bi bi-image-fill text-secondary me-2"></i>
+                                        14 imagenes
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="bi bi-file-earmark-text text-secondary me-2"></i>
+                                        5 archivos de texto
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="bi bi-filetype-pdf text-secondary me-2"></i>
+                                        1 PDF
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+            <div class="col-12">
+                <section class="lecciones mb-5">
+                        <h4 class="fw-bold mb-3">Contenido del curso</h4>
+                        <div class="accordion" id="panelsStayOpen-accordionModulos">
+                            <div class="accordion-item">
+                                <h4 class="accordion-header" id="panelsStayOpen-heading1">
+                                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
+                                        Módulo
+                                    </button>
+                                </h4>
+                                <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
+                                    <div class="accordion-body p-0">
+                                        <ul class="list-group list-group-flush">
+                                            <a href="#" class="list-group-item list-group-item-action leccion">Leccion
+                                                <div class="formatos-leccion">
+                                                    <i class="bi bi-camera-video-fill text-secondary"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action leccion">Leccion
+                                                <div class="formatos-leccion">
+                                                    <i class="bi bi-file-earmark-text text-secondary"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action leccion">Leccion
+                                                <div class="formatos-leccion">
+                                                    <i class="bi bi-filetype-pdf text-secondary"></i>
+                                                </div>
+                                            </a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h4 class="accordion-header" id="panelsStayOpen-heading2">
+                                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="true" aria-controls="panelsStayOpen-collapse2">
+                                        Módulo
+                                    </button>
+                                </h4>
+                                <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading2">
+                                    <div class="accordion-body p-0">
+                                        <ul class="list-group list-group-flush">
+                                        <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
+                                            <div class="formatos-leccion">
+                                                <i class="bi bi-file-earmark-text text-secondary"></i>
+                                                <i class="bi bi-image-fill text-secondary"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
+                                            <div class="formatos-leccion">
+                                                <i class="bi bi-file-earmark-text text-secondary"></i>
+                                                <i class="bi bi-image-fill text-secondary"></i>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
+                                            <div class="formatos-leccion">
+                                                <i class="bi bi-file-earmark-text text-secondary"></i>
+                                                <i class="bi bi-image-fill text-secondary"></i>
+                                            </div>
+                                        </a>               
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
     </div>
 
+
 <!-- LECIONES -->
-    <section class="lecciones mb-5">
-        <h4 class="fw-bold mb-3">Contenido del curso</h4>
-        <div class="accordion" id="panelsStayOpen-accordionModulos">
-            <div class="accordion-item">
-                <h4 class="accordion-header" id="panelsStayOpen-heading1">
-                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
-                        Módulo
-                    </button>
-                </h4>
-                <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
-                    <div class="accordion-body p-0">
-                        <ul class="list-group list-group-flush">
-                            <a href="#" class="list-group-item list-group-item-action leccion">Leccion
-                                <div class="formatos-leccion">
-                                    <i class="bi bi-camera-video-fill text-secondary"></i>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action leccion">Leccion
-                                <div class="formatos-leccion">
-                                    <i class="bi bi-file-earmark-text text-secondary"></i>
-                                </div>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action leccion">Leccion
-                                <div class="formatos-leccion">
-                                    <i class="bi bi-filetype-pdf text-secondary"></i>
-                                </div>
-                            </a>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h4 class="accordion-header" id="panelsStayOpen-heading2">
-                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="true" aria-controls="panelsStayOpen-collapse2">
-                        Módulo
-                    </button>
-                </h4>
-                <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading2">
-                    <div class="accordion-body p-0">
-                        <ul class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
-                            <div class="formatos-leccion">
-                                <i class="bi bi-file-earmark-text text-secondary"></i>
-                                <i class="bi bi-image-fill text-secondary"></i>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
-                            <div class="formatos-leccion">
-                                <i class="bi bi-file-earmark-text text-secondary"></i>
-                                <i class="bi bi-image-fill text-secondary"></i>
-                            </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
-                            <div class="formatos-leccion">
-                                <i class="bi bi-file-earmark-text text-secondary"></i>
-                                <i class="bi bi-image-fill text-secondary"></i>
-                            </div>
-                        </a>               
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- TESTIMONIALES -->
     <h4 class="fw-bold mb-3">Calificaciones</h4>

@@ -10,6 +10,14 @@
 <body>
 
     <?php include('../navbar.php'); ?>
+
+    <table>
+        <thead>
+            
+        </thead>
+    </table>
+
+
     <?php include ('../footer.php'); ?>
     <script src="../script.js"></script>
     

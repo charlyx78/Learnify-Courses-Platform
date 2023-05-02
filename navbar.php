@@ -25,6 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="ventas.php">Ventas</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registroCurso.php">Crear curso</a>
+                </li>
                 <?php }?>   
 <!-- OPCIONES NAVBAR ADMIN -->
                 <?php if ($_SESSION['tipoCuenta'] == 2) { ?>
