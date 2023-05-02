@@ -38,14 +38,14 @@
                                     <input type="text" name="txtPrecioCurso" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-6 mb-3">
+                            <div class="col-12 col-md-6 mb-3">
                                 <label for="fileImagenCurso" class="form-label">Portada</label>
                                 <input type="file" name="fileImagenCurso" class="form-control mb-3" accept=".jpg,.png,.jpeg" onchange="previewImagen(this, document.querySelector('.contenedor-portada-preview'))">
                                 <div class="contenedor-portada-preview contenedor-preview">
                                     <div class="portada-preview preview"></div>
                                 </div>
                             </div>
-                            <div class="col-6 mb-3">
+                            <div class="col-12 col-md-6 mb-3">
                             <label for="fileImagenCurso" class="form-label">Vídeo promocional</label>
                                 <input type="file" name="fileVideoPromoCurso" id="inputVideoPromo" class="form-control mb-3" accept=".mp4,.wmv,.avi">
                                 <div class="contenedor-videopromo-preview contenedor-preview">
@@ -53,6 +53,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button type="submit" class="btn boton-secundario w-100">Guardar información de curso</button>
                     </form>
                 </div>
             </div>
@@ -60,37 +61,20 @@
 
 
         <div class="row">
-            <div class="col-6">
-                <h2>Crear módulo</h2>
-                <div class="crear-modulos-curso card mb-5">
-                    <div class="card-body">
-                        <form action="">
-                            <label for="txtNombreModulo" class="form-label">Módulo</label>
-                            <input type="txtNombreModulo" class="form-control mb-2">
-                            <button type="submit" class="btn boton-secundario">Crear módulo</button>
-                        </form>
-                    </div>
-                </div>
+            <h2 class="mb-4">Contenido del curso</h2>
 
-                <h2>Crear lección</h2>
-                <div class="crear-leccion-curso card">
-                    <div class="card-body">
-                        <form action="">
-                            <label for="txtNombreLeccion" class="form-label">Nombre de la lección</label>
-                            <input name="txtNombreLeccion" type="text" class="form-control mb-3" placeholder="Escribe aquí el nombre de la lección">
-                            <label for="txtTextoLeccion" class="form-label">Descripción de la lección</label>
-                            <textarea name="txtTextoLeccion" class="form-control mb-3" cols="30" rows="10" placeholder="Escribe aquí la descripción de la lección"></textarea>
-                            <label for="fileArchivoLeccion" class="form-label">Adujnta un archivo (formatos permitidos: jpg, jpeg, png, wmv, mpg, pdf)</label>
-                            <input type="file" name="fileArchivoLeccion" class="form-control mb-3" accept=".jgp,.jpeg,.png,.mp4,.wmv,.pdf">
-                            <button type="submit" class="btn boton-secundario">Crear lección</button>
-                        </form>
-                    </div>
+            <div class="col-md-3 col-12 mb-4">
+                <div class="d-flex flex-column gap-2">
+                    <button type="button" class="btn boton-secundario w-100" data-bs-toggle="modal" data-bs-target="#moduloModal">
+                        Agregar un módulo
+                    </button>
+                    <button type="button" class="btn boton-secundario w-100" data-bs-toggle="modal" data-bs-target="#leccionModal">
+                        Agregar una lección
+                    </button>
                 </div>
             </div>
 
-            <div class="col-6">
-                <h2>Modulos del curso</h2>
-
+            <div class="col-md-9 col-12">
                 <div class="accordion mb-3" id="panelsStayOpen-accordionModulos">
                     <div class="accordion-item">
                         <h4 class="accordion-header" id="panelsStayOpen-heading1">
@@ -133,10 +117,59 @@
             </div>
         </div>
         
-        <button class="btn btn-lg boton-secundario-glow boton-float">Crear curso</button>
+        <button class="btn btn-lg boton-secundario mt-5 w-100">Crear curso</button>
 
     </main>
 
+    <div class="modal fade" id="moduloModal" tabindex="-1" aria-labelledby="moduloModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="moduloModalLabel">Agregar un módulo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <label for="txtNombreModulo" class="form-label">Módulo</label>
+                        <input type="txtNombreModulo" class="form-control mb-2">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn boton-secundario">Crear módulo</button>            
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="leccionModal" tabindex="-1" aria-labelledby="leccionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="leccionModalLabel">Agregar una lección</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <label for="txtNombreLeccion" class="form-label">Nombre de la lección</label>
+                        <input name="txtNombreLeccion" type="text" class="form-control mb-3" placeholder="Escribe aquí el nombre de la lección">
+                        <label for="selectModulo" class="form-label">Módulo</label>
+                        <select name="selectModulo" class="form-select mb-3" id="">
+                            <option value="">Módulo</option>
+                        </select>
+                        <label for="txtTextoLeccion" class="form-label">Descripción de la lección</label>
+                        <textarea name="txtTextoLeccion" class="form-control mb-3" cols="30" rows="10" placeholder="Escribe aquí la descripción de la lección"></textarea>
+                        <label for="fileArchivoLeccion" class="form-label">Adujnta un archivo (formatos permitidos: jpg, jpeg, png, wmv, mpg, pdf)</label>
+                        <input type="file" name="fileArchivoLeccion" class="form-control mb-3" accept=".jgp,.jpeg,.png,.mp4,.wmv,.pdf">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn boton-secundario">Crear lección</button>      
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <?php include ('../footer.php'); ?>
     <script src="../src/js/registroCurso.js"></script>
     

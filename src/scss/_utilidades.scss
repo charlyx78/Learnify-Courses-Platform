@@ -84,8 +84,11 @@
 }
 .boton-float {
     position: fixed;
-    bottom: 40px;
-	right: 40px;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+	right: 0;
+    margin: 0 auto 2em auto; 
 }
 .logo {
     color: $color-secundario;
