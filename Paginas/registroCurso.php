@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn boton-secundario w-100">Guardar información de curso</button>
+                        <button type="submit" class="btn boton-terciario w-100">Guardar información de curso</button>
                     </form>
                 </div>
             </div>
@@ -65,10 +65,10 @@
 
             <div class="col-md-3 col-12 mb-4">
                 <div class="d-flex flex-column gap-2">
-                    <button type="button" class="btn boton-secundario w-100" data-bs-toggle="modal" data-bs-target="#moduloModal">
+                    <button type="button" class="btn boton-terciario w-100" data-bs-toggle="modal" data-bs-target="#moduloModal">
                         Agregar un módulo
                     </button>
-                    <button type="button" class="btn boton-secundario w-100" data-bs-toggle="modal" data-bs-target="#leccionModal">
+                    <button type="button" class="btn boton-terciario w-100" data-bs-toggle="modal" data-bs-target="#leccionModal">
                         Agregar una lección
                     </button>
                 </div>
