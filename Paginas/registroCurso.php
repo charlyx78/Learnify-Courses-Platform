@@ -157,9 +157,19 @@
                         <label for="selectModulo" class="form-label">Módulo</label>
                         <select name="selectModulo" class="form-select mb-3" id="selectModulo">
                             <option selected value="Modulo">Modulo</option>
-                            <option value="1">1</option>
-                            <option value="2">54</option>
-                            <option value="3">3</option>
+                            <?php 
+                            include("../Programa/db.php");
+                            $query = "select IDM, nombreM from modulos";
+                            $resultado = mysqli_query($con, $query);
+                            if ($resultado) 
+                            {
+                                while($row = $resultado->fetch_array())
+                                {
+                                    $ModuloID = $row['IDM'];
+                                    $ModuloNombre = $row['nombreM']; 
+                            ?>
+                            <option value="<?php echo $ModuloID ?>"><?php echo $ModuloNombre ?></option>
+                            <?php } } ?>
                         </select>
                         <label for="txtTextoLeccion" class="form-label">Descripción de la lección</label>
                         <textarea name="txtTextoLeccion" class="form-control mb-3" cols="30" rows="10" placeholder="Escribe aquí la descripción de la lección"></textarea>
