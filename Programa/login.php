@@ -18,6 +18,7 @@
             {
             $row = $result->fetch_assoc();
 
+            $_SESSION['id'] = $row['id'];
             $_SESSION['nombre'] = $row['nombre'];
             $_SESSION['tipoCuenta'] = $row['tipoCuenta'];
             $_SESSION['apellidoPaterno'] = $row['apellidoPaterno'];
