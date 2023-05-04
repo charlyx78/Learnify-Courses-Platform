@@ -1,4 +1,3 @@
-<?php include('../Programa/PregistroCurso.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,7 @@
 <body>
 
     <?php include('../navbar.php'); ?>
+    <?php include('../Programa/PregistroCurso.php'); ?>
 
     <main class="container contenido mt-4">
 

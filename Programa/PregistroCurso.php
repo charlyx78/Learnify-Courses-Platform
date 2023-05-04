@@ -44,8 +44,9 @@ if(isset($_POST["btnRegistroC"]))
     $result = mysqli_query($con, $query);
    if(!$result->num_rows > 0)
         {
-            $query2 = "INSERT INTO cursos (nombreC, categoriaC, precioC, portadaC, videoC) 
-            VALUES ('$nombreC','$categoriaC', $precioC,'$portadaC','$videoC')";
+            $iniciadoID = $_SESSION['id'];
+            $query2 = "INSERT INTO cursos (nombreC, categoriaC, precioC, portadaC, videoC, profesorC) 
+            VALUES ('$nombreC','$categoriaC', $precioC,'$portadaC','$videoC', '$iniciadoID')";
             $result2= mysqli_query($con, $query2);
             echo "<script type='text/javascript'> alert('Agregado Curso: ".($nombreC)."')</script>";
         }

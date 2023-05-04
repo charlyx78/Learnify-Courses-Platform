@@ -79,35 +79,54 @@
     <section class="contenedor-cursos-populares mt-4">
         <h4 class="mb-3">Cursos populares</h4>
         <div class="row">
-            <?php for($i=0; $i<=3; $i++) { ?>
+            <?php 
+            include("../Programa/db.php");
+            $query = "select * from cursos";
+            $resultado = mysqli_query($con, $query);
+            if ($resultado)
+            {
+                while($row = $resultado->fetch_array())
+                {
+                    $CursoID = $row['IDC'];
+                    $CursoNombre = $row['nombreC'];
+                    $CursoCategoria = $row['categoriaC'];
+                    $CursoPrecio = $row['precioC'];
+                    $CursoPortada = $row['portadaC'];
+                    $CursoVideo = $row['videoC'];
+
+                    $CursoProfe = $row['profesorC'];
+                    $query2 = "select nombre, apellidoPaterno, apellidoMaterno from usuarios where id = $CursoProfe";
+                    $resultado2 = mysqli_query($con, $query2);
+                    $row2 = $resultado2->fetch_assoc();
+                    $nombreCompletoProfeCurso = $row2['nombre']." ".$row2['apellidoPaterno']." ".$row2['apellidoMaterno'];
+             ?>
                 <div class="col-12 col-md-4 col-lg-3 mb-4">
                     <a href="curso.php" class="col-12 col-md-3">
                         <div class="curso card border-0">
                             <div class="row">
                                 <div class="col-4 col-md-12 pb-1 contenedor-imagen-curso">
-                                    <div class="imagen-curso rounded-top" style="background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1154099/0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Social-754bc73011e057dc76e55a44a954e0c3.png);"></div>
+                                    <div class="imagen-curso rounded-top" style="background-image: url('<?php echo $row['portadaC'] ?>');"></div>
                                 </div>
                                 <div class="col-8 col-md-12 contenedor-cuerpo-curso">
                                     <div class="card-body pt-2">
                                         <div class="categorias-curso">
-                                            <span class="badge borde-secundario mb-2">Bases de datos</span>
-                                            <span class="badge borde-secundario mb-2">SQL Server</span>
+                                            <span class="badge borde-secundario mb-2"><?php echo $CursoCategoria ?></span>
                                         </div>
                                         <h5 class="mb-1 titulo-curso"
-                                        title="Modelo de administracion de datos (SQL Server)">Modelo de administracion de datos (SQL Server)</h5>
+                                        title="Modelo de administracion de datos (SQL Server)"><?php echo $CursoNombre ?></h5>
                                         <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
-                                            <p class="m-0">Juan Villareal</p>
+                                            <p class="m-0"><?php echo $nombreCompletoProfeCurso ?></p>
                                             <p class="m-0"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
                                         </div>
 
-                                        <h6 class="m-0 fs-3" style="font-size: 1.4em;">$500</h6>
+                                        <h6 class="m-0 fs-3" style="font-size: 1.4em;">$<?php echo $CursoPrecio ?></h6>
                                     </div>
                                 </div>
                             </div>                         
                         </div>
                     </a> 
                 </div>
-            <?php } ?>
+            <?php } } ?>
         </div>                                                                                                                                                                                                                                                                                                                                          
     </section>      
     <section class="contenedor-cursos-vendidos mt-4">
