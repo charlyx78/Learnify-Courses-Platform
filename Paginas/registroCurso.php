@@ -118,7 +118,6 @@
                 </div>
             </div>
         </div>
-    
     </main>
 
     <div class="modal fade" id="moduloModal" tabindex="-1" aria-labelledby="moduloModalLabel" aria-hidden="true">
