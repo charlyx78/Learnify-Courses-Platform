@@ -1,3 +1,4 @@
+<?php include('../Programa/PregistroCurso.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
             <h2 class="mb-4">Información del curso</h2>
             <div class="card mb-5">
                 <div class="card-body">
-                    <form action="">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-12 mb-3">
                                 <label for="txtNombreCurso" class="form-label">Nombre del curso</label>
@@ -25,10 +26,11 @@
                             </div>
                             <div class="col-6 mb-3">
                                 <label for="txtCategoriaCurso" class="form-label">Categoría</label>
-                                <select name="txtCategoriaCurso" class="form-select">
-                                    <option value="">PHP</option>
-                                    <option value="">Javascript</option>
-                                    <option value="">CSS</option>
+                                <select name="txtCategoriaCurso" id="txtCategoriaCurso" class="form-select">
+                                    <option selected value="">Elegir</option>
+                                    <option value="PHP">PHP</option>
+                                    <option value="Javascript">Javascript</option>
+                                    <option value="CSS">CSS</option>
                                 </select>
                             </div>
                             <div class="col-6 mb-3">
@@ -53,7 +55,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn boton-secundario w-100">Guardar información de curso</button>
+                        <input type="submit" name="btnRegistroC" id="btnRegistroC" class="btn boton-secundario w-100" value="Guardar información de curso">
                     </form>
                 </div>
             </div>
@@ -129,14 +131,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                         <label for="txtNombreModulo" class="form-label">Módulo</label>
-                        <input type="txtNombreModulo" class="form-control mb-2">
-                    </form>
+                        <input type="text" name="txtNombreModulo" class="form-control mb-2">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn boton-secundario">Crear módulo</button>            
+                    <input type="submit" class="btn boton-secundario" name="btnRegistroM" id="btnRegistroM" value="Crear módulo">
+                    </form>          
                 </div>
             </div>
         </div>
@@ -149,22 +151,25 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                         <label for="txtNombreLeccion" class="form-label">Nombre de la lección</label>
                         <input name="txtNombreLeccion" type="text" class="form-control mb-3" placeholder="Escribe aquí el nombre de la lección">
                         <label for="selectModulo" class="form-label">Módulo</label>
-                        <select name="selectModulo" class="form-select mb-3" id="">
-                            <option value="">Módulo</option>
+                        <select name="selectModulo" class="form-select mb-3" id="selectModulo">
+                            <option selected value="Modulo">Modulo</option>
+                            <option value="1">1</option>
+                            <option value="2">54</option>
+                            <option value="3">3</option>
                         </select>
                         <label for="txtTextoLeccion" class="form-label">Descripción de la lección</label>
                         <textarea name="txtTextoLeccion" class="form-control mb-3" cols="30" rows="10" placeholder="Escribe aquí la descripción de la lección"></textarea>
                         <label for="fileArchivoLeccion" class="form-label">Adujnta un archivo (formatos permitidos: jpg, jpeg, png, wmv, mpg, pdf)</label>
                         <input type="file" name="fileArchivoLeccion" class="form-control mb-3" accept=".jgp,.jpeg,.png,.mp4,.wmv,.pdf">
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn boton-secundario">Crear lección</button>      
+                    <input type="submit" class="btn boton-secundario" name="btnRegistroL" id="btnRegistroL" value="Crear lección">
+                    </form>
                 </div>
             </div>
         </div>
