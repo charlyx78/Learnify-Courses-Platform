@@ -13,12 +13,13 @@
 
     <div class="contenedor-curso-info">
 
-        <div class="position-absolute">
-            <div class="fondo-portada-curso bg-image vw-100 py-5" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../Imagenes/base-datos.jpeg'); height:50vh;">
+        <div class="fondo-portada-curso">
+            <div class="bg-image vw-100 py-5" 
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../Imagenes/base-datos.jpeg'); height:50vh;">
                 <div class="container text-light">
                     <div class="row">
-                        <div class="col-9 pe-5">
-                            <h3 class="mb-3 fw-bold">Curso de modelo de administración de datos (SQL Server)</h3>
+                        <div class=" col-12 col-lg-9 pe-lg-5">
+                            <h2 class="mb-3 fw-bold">Curso de modelo de administración de datos (SQL Server)</h2>
                             <div class="instructor-curso mb-5 d-flex align-items-center">
                                 <img src="../Imagenes/avatar.svg" class="rounded-circle me-4" width="40" height="40" alt="">
                                 <h5 class="m-0">Juan Alejandro Villarreal Mojica</h5>
@@ -54,7 +55,7 @@
         </div>
         
 
-        <div class="position-relative">
+        <div class="position-relative d-none d-lg-block">
             <div class="container py-5">
                 <div class="row">
                     <div class="col-9"></div>

@@ -6,6 +6,11 @@
     background-size: cover;
     position: relative;
 }
+.fondo-portada-curso {
+    @media(min-width: $desktop) {
+        position: absolute;
+    }
+}
 .categorias-curso-view {
     position: absolute;
     bottom: 0;
@@ -27,6 +32,9 @@
 .accordion-button:not(.collapsed) {
     color: $color-dark;
     background-color: white;
+}
+.lecciones {
+    padding-top: 2em;
 }
 .leccion {
     display: flex;
