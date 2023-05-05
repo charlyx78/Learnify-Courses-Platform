@@ -101,7 +101,7 @@
                     $nombreCompletoProfeCurso = $row2['nombre']." ".$row2['apellidoPaterno']." ".$row2['apellidoMaterno'];
              ?>
                 <div class="col-12 col-md-4 col-lg-3 mb-4">
-                    <a href="curso.php" class="col-12 col-md-3">
+                    <a href="curso.php?idCursoSel=<?php echo $CursoID ?>" class="col-12 col-md-3">
                         <div class="curso card border-0">
                             <div class="row">
                                 <div class="col-4 col-md-12 pb-1 contenedor-imagen-curso">

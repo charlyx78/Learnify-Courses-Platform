@@ -133,7 +133,20 @@
                         <input type="text" name="txtNombreModulo" class="form-control mb-2">
                         <label for="selectCurso" class="form-label">Curso</label>
                         <select name="selectCurso" id="" class="form-select">
-                            <option value="">Curso de pajas</option>
+                        <option selected value="">Curso</option>
+                            <?php 
+                            include("../Programa/db.php");
+                            $query = "select IDC, nombreC from cursos";
+                            $resultado = mysqli_query($con, $query);
+                            if ($resultado) 
+                            {
+                                while($row = $resultado->fetch_array())
+                                {
+                                    $CursoID = $row['IDC'];
+                                    $CursoNombre = $row['nombreC']; 
+                            ?>
+                            <option value="<?php echo $CursoID ?>"><?php echo $CursoNombre ?></option>
+                            <?php } } ?>
                         </select>
                 </div>
                 <div class="modal-footer">
@@ -157,7 +170,7 @@
                         <input name="txtNombreLeccion" type="text" class="form-control mb-3" placeholder="Escribe aquí el nombre de la lección">
                         <label for="selectModulo" class="form-label">Módulo</label>
                         <select name="selectModulo" class="form-select mb-3" id="selectModulo">
-                            <option selected value="Modulo">Modulo</option>
+                            <option selected value="">Modulo</option>
                             <?php 
                             include("../Programa/db.php");
                             $query = "select IDM, nombreM from modulos";

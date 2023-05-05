@@ -60,7 +60,7 @@ if(isset($_POST["btnRegistroC"]))
 if(isset($_POST["btnRegistroM"]))
 {
     $nombreM = $_POST['txtNombreModulo'];
-    $idDelCurso = 8;
+    $idDelCurso = $_POST['selectCurso'];
 
     $query = "select * from modulos where nombreM = '$nombreM'";
     $result = mysqli_query($con, $query);

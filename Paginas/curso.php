@@ -9,20 +9,41 @@
 </head>
 <body>
 
-    <?php include('../navbar.php'); ?>
+    <?php include('../navbar.php');         
+    $cursoSelecionado = $_GET["idCursoSel"] ;
+    include("../Programa/db.php");
+    $query = "select * from cursos where IDC = $cursoSelecionado";
+    $resultado = mysqli_query($con, $query);
+    if ($resultado)
+    { 
+    $row = $resultado->fetch_array();
+    $CursoID = $row['IDC'];
+    $CursoNombre = $row['nombreC'];
+    $CursoCategoria = $row['categoriaC'];
+    $CursoPrecio = $row['precioC'];
+    $CursoPortada = $row['portadaC'];
+    $CursoVideo = $row['videoC'];
+        
+    $CursoProfe = $row['profesorC'];
+    $query2 = "select nombre, apellidoPaterno, apellidoMaterno from usuarios where id = $CursoProfe";
+    $resultado2 = mysqli_query($con, $query2);
+    $row2 = $resultado2->fetch_assoc();
+    $nombreCompletoProfeCurso = $row2['nombre']." ".$row2['apellidoPaterno']." ".$row2['apellidoMaterno'];
+    }
+    ?>
 
     <div class="contenedor-curso-info">
 
         <div class="fondo-portada-curso">
             <div class="bg-image vw-100 py-5" 
-            style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../Imagenes/base-datos.jpeg'); height:50vh;">
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('<?php echo $CursoPortada ?>'); height:50vh;">
                 <div class="container text-light">
                     <div class="row">
                         <div class=" col-12 col-lg-9 pe-lg-5">
-                            <h2 class="mb-3 fw-bold">Curso de modelo de administración de datos (SQL Server)</h2>
+                            <h2 class="mb-3 fw-bold"><?php echo $CursoNombre ?></h2>
                             <div class="instructor-curso mb-5 d-flex align-items-center">
                                 <img src="../Imagenes/avatar.svg" class="rounded-circle me-4" width="40" height="40" alt="">
-                                <h5 class="m-0">Juan Alejandro Villarreal Mojica</h5>
+                                <h5 class="m-0"><?php echo $nombreCompletoProfeCurso ?></h5>
                             </div>
                             <h5 class="mb-3" style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci provident iure harum ad quod sit neque? Temporibus doloribus ad pariatur, quibusdam perferendis explicabo! Facilis dolores alias voluptatibus est doloremque laborum.</h5>
                             <div class="info-curso">
@@ -63,8 +84,8 @@
                         <div class="contenido-comprar-curso">
                             <div class="card">
                                 <div class="card-body">
-                                    <video src="" width="100%" class="mb-2" autoplay muted controls></video>
-                                    <h4 class="text-dark text-end">$500 MXN</h4>
+                                    <video src="<?php echo $CursoVideo ?>" width="100%" class="mb-2" autoplay muted controls></video>
+                                    <h4 class="text-dark text-end">$ <?php echo $CursoPrecio ?> MXN</h4>
                                     <button type="button" class="btn boton-secundario w-100 mb-3">Comprar ahora</button>
                                     <div class="incluye-curso">
                                         <h5 class="text-dark">Este curso incluye</h5>
