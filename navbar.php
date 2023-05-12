@@ -26,7 +26,7 @@
                     <a class="nav-link" href="ventas.php">Ventas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="registroCurso.php">Crear curso</a>
+                    <a class="nav-link" href="gestionCursos.php">Mis cursos</a>
                 </li>
                 <?php }?>   
 <!-- OPCIONES NAVBAR ADMIN -->
