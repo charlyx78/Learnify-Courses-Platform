@@ -120,67 +120,49 @@
         <div class="container">
             <section class="lecciones mb-5">
                 <h4 class="fw-bold mb-3">Contenido del curso</h4>
+            <?php 
+            $query3 = "select * from modulos where FK_IDC = $cursoSelecionado";
+            $resultado3 = mysqli_query($con, $query3);
+            if ($resultado3)
+            {
+                while($row = $resultado3->fetch_array())
+                {
+                    $ModuloID = $row['IDM'];
+                    $ModuloNombre = $row['nombreM'];
+            ?>
                 <div class="accordion" id="panelsStayOpen-accordionModulos">
                     <div class="accordion-item">
                         <h4 class="accordion-header" id="panelsStayOpen-heading1">
                             <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
-                                Módulo
+                            <?php echo $ModuloNombre ?>
                             </button>
                         </h4>
                         <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
                             <div class="accordion-body p-0">
                                 <ul class="list-group list-group-flush">
-                                    <a href="#" class="list-group-item list-group-item-action leccion">Leccion
+                                <?php 
+                                $query4 = "select * from lecciones where FK_IDM = $ModuloID";
+                                $resultado4 = mysqli_query($con, $query4);
+                                if ($resultado4)
+                                {
+                                    while($row = $resultado4->fetch_array())
+                                                    {
+                                        $LeccionID = $row['IDL'];
+                                        $LeccionNombre = $row['nombreL'];
+                                ?>
+                                    <a href="#" class="list-group-item list-group-item-action leccion">
+                                    <?php echo $LeccionNombre ?>
                                         <div class="formatos-leccion">
                                             <i class="bi bi-camera-video-fill text-secondary"></i>
                                         </div>
                                     </a>
-                                    <a href="#" class="list-group-item list-group-item-action leccion">Leccion
-                                        <div class="formatos-leccion">
-                                            <i class="bi bi-file-earmark-text text-secondary"></i>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item list-group-item-action leccion">Leccion
-                                        <div class="formatos-leccion">
-                                            <i class="bi bi-filetype-pdf text-secondary"></i>
-                                        </div>
-                                    </a>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h4 class="accordion-header" id="panelsStayOpen-heading2">
-                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="true" aria-controls="panelsStayOpen-collapse2">
-                                Módulo
-                            </button>
-                        </h4>
-                        <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading2">
-                            <div class="accordion-body p-0">
-                                <ul class="list-group list-group-flush">
-                                <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
-                                    <div class="formatos-leccion">
-                                        <i class="bi bi-file-earmark-text text-secondary"></i>
-                                        <i class="bi bi-image-fill text-secondary"></i>
-                                    </div>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
-                                    <div class="formatos-leccion">
-                                        <i class="bi bi-file-earmark-text text-secondary"></i>
-                                        <i class="bi bi-image-fill text-secondary"></i>
-                                    </div>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
-                                    <div class="formatos-leccion">
-                                        <i class="bi bi-file-earmark-text text-secondary"></i>
-                                        <i class="bi bi-image-fill text-secondary"></i>
-                                    </div>
-                                </a>               
+                                <?php } } ?>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php } } ?>
             </section>
 
             <h4 class="fw-bold mb-3">Calificaciones</h4>
