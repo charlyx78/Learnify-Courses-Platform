@@ -10,7 +10,26 @@
 <body>
 
     <?php include('../navbar.php'); ?>
-    <?php include('../Programa/PregistroCurso.php'); ?>
+    <?php include('../Programa/PregistroCurso.php'); 
+    
+    if (isset($_GET["idCursoSel"]))
+    {
+    $cursoSelecionado = $_GET["idCursoSel"];
+    $_SESSION['CursoAEditar'] = $cursoSelecionado;
+    include("../Programa/db.php");
+    $query = "select * from cursos where IDC = $cursoSelecionado";
+    $resultado = mysqli_query($con, $query);
+    if ($resultado)
+    {
+        $row = $resultado->fetch_array();
+        $CursoNombre = $row['nombreC'];
+        $CursoCategoria = $row['categoriaC'];
+        $CursoPrecio = $row['precioC'];
+        $CursoPortada = $row['portadaC'];
+        $CursoVideo = $row['videoC'];
+    }
+    }
+    ?>
 
     <main class="container contenido mt-4">
 
@@ -22,12 +41,34 @@
                         <div class="row">
                             <div class="col-12 mb-3">
                                 <label for="txtNombreCurso" class="form-label">Nombre del curso</label>
-                                <input type="text" name="txtNombreCurso" class="form-control">
+                                <input type="text" name="txtNombreCurso" class="form-control" 
+                                <?php
+                                if (isset($_GET["idCursoSel"]))
+                                {
+                                ?>
+                                value="<?php echo $CursoNombre?>"
+                                <?php
+                                }
+                                ?>
+                                >
                             </div>
                             <div class="col-6 mb-3">
                                 <label for="txtCategoriaCurso" class="form-label">Categoría</label>
                                 <select name="txtCategoriaCurso" id="txtCategoriaCurso" class="form-select">
+                                <?php
+                                if (isset($_GET["idCursoSel"]))
+                                {
+                                ?>
+                                <option selected value="<?php echo $CursoCategoria?>"><?php echo $CursoCategoria?></option>
+                                <?php
+                                }
+                                else
+                                {
+                                    ?>
                                     <option selected value="">Elegir</option>
+                                    <?php 
+                                }
+                                ?>
                                     <option value="PHP">PHP</option>
                                     <option value="Javascript">Javascript</option>
                                     <option value="CSS">CSS</option>
@@ -37,13 +78,32 @@
                                 <label for="txtPrecioCurso" class="form-label">Precio</label>
                                 <div class="input-group">
                                     <div class="input-group-text">MXN</div>
-                                    <input type="text" name="txtPrecioCurso" class="form-control">
+                                    <input type="text" name="txtPrecioCurso" class="form-control"
+                                    <?php
+                                    if (isset($_GET["idCursoSel"]))
+                                    {
+                                    ?>
+                                    value="<?php echo $CursoPrecio?>"
+                                    <?php
+                                    }
+                                    ?>
+                                    >
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="fileImagenCurso" class="form-label">Portada</label>
                                 <input type="file" name="fileImagenCurso" class="form-control mb-3" accept=".jpg,.png,.jpeg" onchange="previewImagen(this, document.querySelector('.contenedor-portada-preview'))">
-                                <div class="contenedor-portada-preview contenedor-preview">
+                                <div class="contenedor-portada-preview contenedor-preview" 
+                                    <?php
+                                    if (isset($_GET["idCursoSel"]))
+                                    {
+                                    ?>
+                                    style="background-image: url('<?php echo $CursoPortada?>');"
+                                    <?php
+                                    $_SESSION['ImagenSinEditar'] = $CursoPortada;
+                                    }
+                                    ?>
+                                >
                                     <div class="portada-preview preview"></div>
                                 </div>
                             </div>
@@ -51,7 +111,17 @@
                             <label for="fileImagenCurso" class="form-label">Vídeo promocional</label>
                                 <input type="file" name="fileVideoPromoCurso" id="inputVideoPromo" class="form-control mb-3" accept=".mp4,.wmv,.avi">
                                 <div class="contenedor-videopromo-preview contenedor-preview">
-                                    <video class="videopromo-preview preview" autoplay muted controls loop></video>
+                                    <video class="videopromo-preview preview" autoplay muted controls loop
+                                    <?php
+                                    if (isset($_GET["idCursoSel"]))
+                                    {
+                                    ?>
+                                    src="<?php echo $CursoVideo ?>"
+                                    <?php
+                                    $_SESSION['VideoSinEditar'] = $CursoVideo;
+                                    }
+                                    ?>
+                                    ></video>
                                 </div>
                             </div>
                         </div>

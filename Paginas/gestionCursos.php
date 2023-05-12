@@ -16,32 +16,54 @@
         <a href="registroCurso.php" class="btn boton-secundario w-100 mb-4"><i class="bi bi-plus-circle-fill me-3"></i>Crear nuevo curso</a>
         <ul class="list-group">
             <li class="list-group-item" aria-current="true">
+            <?php 
+            include("../Programa/db.php");
+            $iniciadoID = $_SESSION['id'];
+            $query = "select * from cursos where profesorC = '$iniciadoID'";
+            $resultado = mysqli_query($con, $query);
+            if ($resultado)
+            {
+                while($row = $resultado->fetch_array())
+                {
+                    $CursoID = $row['IDC'];
+                    $CursoNombre = $row['nombreC'];
+                    $CursoCategoria = $row['categoriaC'];
+                    $CursoPrecio = $row['precioC'];
+                    $CursoPortada = $row['portadaC'];
+                    $CursoVideo = $row['videoC'];
+
+                    $query2 = "select nombre, apellidoPaterno, apellidoMaterno from usuarios where id = $iniciadoID";
+                    $resultado2 = mysqli_query($con, $query2);
+                    $row2 = $resultado2->fetch_assoc();
+                    $nombreCompletoProfeCurso = $row2['nombre']." ".$row2['apellidoPaterno']." ".$row2['apellidoMaterno'];
+            ?>
                 <div class="row">
                     <div class="col-2">
-                        <img src="../Imagenes/base-datos.jpeg" class="w-100" alt="">     
+                        <img src="<?php echo $row['portadaC'] ?>" class="w-100" alt="">     
                     </div>               
                     <div class="col-8">
-                        <h4>Nombre del curso</h4>
+                        <h4><?php echo $CursoNombre ?></h4>
                         <div class="">
                             <i class="bi bi-people-fill"></i>
-                            15486 estudiantes activos
+                            ID : <?php echo $CursoID ?> estudiantes activos
                         </div>
                         <div class="">
                             <i class="bi bi-star-fill"></i>
-                            4.5 (689)
+                            Categoria: <?php echo $CursoCategoria ?> (689)
                         </div>
                         <div class="">
                             <i class="bi bi-book-fill"></i>
-                            47 lecciones
+                            Precio: $<?php echo $CursoPrecio ?> - 47 lecciones
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="h-100 d-flex justify-content-end gap-2">
-                            <a href="registroCurso.php" class="btn boton-secundario h-100 d-flex align-items-center"><i class="bi bi-pencil-fill"></i></a>
+                            <a href="registroCurso.php?idCursoSel=<?php echo $CursoID ?>" class="btn boton-secundario h-100 d-flex align-items-center"><i class="bi bi-pencil-fill"></i></a>
                             <button class="btn btn-danger h-100" style="width:50px;"><i class="bi bi-trash3-fill"></i></button>
                         </div>
                     </div>
                 </div>
+                <?php } } ?>
             </li>
         </ul>
     </div>
