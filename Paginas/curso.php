@@ -152,7 +152,7 @@
                                         $LeccionID = $row['IDL'];
                                         $LeccionNombre = $row['nombreL'];
                                 ?>
-                                    <a href="#" class="list-group-item list-group-item-action leccion">
+                                    <a href="leccion.php" class="list-group-item list-group-item-action leccion">
                                     <?php echo $LeccionNombre ?>
                                         <div class="formatos-leccion">
                                             <i class="bi bi-camera-video-fill text-secondary"></i>
