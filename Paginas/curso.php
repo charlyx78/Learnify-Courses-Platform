@@ -8,6 +8,7 @@
     <title>Titulo del curso - Learnify</title>
 </head>
 <body>
+    <script src="https://www.paypal.com/sdk/js?client-id=Ac8wuw0EY67Aws6Qp16ir-ZYJqrbHPIgNY47p6Nf2liE8ae3RaC8Sp-Ttgs9lUgN-Yk0qsXS25EwomSx&currency=MXN"></script>
 
     <?php include('../navbar.php');         
     $cursoSelecionado = $_GET["idCursoSel"] ;
@@ -36,7 +37,7 @@
 
         <div class="fondo-portada-curso">
             <div class="bg-image vw-100 py-5" 
-            style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('<?php echo $CursoPortada ?>'); height:50vh;">
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('<?php echo $CursoPortada ?>'); height:60vh;">
                 <div class="container text-light">
                     <div class="row">
                         <div class=" col-12 col-lg-9 pe-lg-5">
@@ -69,6 +70,7 @@
                                     </h6>
                                 </div>
                             </div>
+                            <div id="paypal-button-container-sm" class="d-lg-none py-5"></div>
                         </div>
                     </div>           
                 </div>
@@ -86,7 +88,7 @@
                                 <div class="card-body">
                                     <video src="<?php echo $CursoVideo ?>" width="100%" class="mb-2" autoplay muted controls></video>
                                     <h4 class="text-dark text-end">$ <?php echo $CursoPrecio ?> MXN</h4>
-                                    <button type="button" class="btn boton-secundario w-100 mb-3">Comprar ahora</button>
+                                    <div id="paypal-button-container-lg"></div>
                                     <div class="incluye-curso">
                                         <h5 class="text-dark">Este curso incluye</h5>
                                         <ul class="list-group list-group-flush">
@@ -203,10 +205,33 @@
     </div>
 </main>
 
-
-
     <?php include ('../footer.php'); ?>
     <script src="../script.js"></script>
+
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: 100
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data,actions) {
+                actions.order.capture().then(function(detalles){
+                    //codigo al concretar la coompra
+                });
+            },
+            onCancel: function(data) {
+                alert('Pago cancelado');
+                console.log(data);
+            }
+        }).render('#paypal-button-container-sm');
+
+        paypal.Buttons().render('#paypal-button-container-lg')
+    </script>
 
 </body>
 </html>

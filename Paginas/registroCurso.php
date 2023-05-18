@@ -150,37 +150,19 @@
                 <div class="accordion mb-3" id="panelsStayOpen-accordionModulos">
                     <div class="accordion-item">
                         <h4 class="accordion-header" id="panelsStayOpen-heading1">
-                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
+                            <button class="accordion-button fw-bold leccion d-flex justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
                                 Módulo
                             </button>
                         </h4>
                         <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
                             <div class="accordion-body p-0">
                                 <ul class="list-group list-group-flush">
-                                    <a href="#" class="list-group-item list-group-item-action leccion">Leccion
+                                    <a href="#" class="list-group-item list-group-item-action leccion" data-bs-toggle="modal" data-bs-target="#leccionModal">
+                                        Leccion
                                         <div class="formatos-leccion">
-                                            <i class="bi bi-camera-video-fill text-secondary"></i>
+                                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                                         </div>
                                     </a>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h4 class="accordion-header" id="panelsStayOpen-heading2">
-                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="true" aria-controls="panelsStayOpen-collapse2">
-                                Módulo
-                            </button>
-                        </h4>
-                        <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading2">
-                            <div class="accordion-body p-0">
-                                <ul class="list-group list-group-flush">
-                                    <a href="#" class="list-group-item list-group-item-action leccion">Leccion 
-                                        <div class="formatos-leccion">
-                                            <i class="bi bi-file-earmark-text text-secondary"></i>
-                                            <i class="bi bi-image-fill text-secondary"></i>
-                                        </div>
-                                    </a>           
                                 </ul>
                             </div>
                         </div>

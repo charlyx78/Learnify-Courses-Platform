@@ -15,7 +15,7 @@
         <h2 class="mb-4">Mis cursos</h2>
         <a href="registroCurso.php" class="btn boton-secundario w-100 mb-4"><i class="bi bi-plus-circle-fill me-3"></i>Crear nuevo curso</a>
         <ul class="list-group">
-            <li class="list-group-item" aria-current="true">
+            <li class="list-group-item mb-4" aria-current="true">
             <?php 
             include("../Programa/db.php");
             $iniciadoID = $_SESSION['id'];
@@ -37,7 +37,7 @@
                     $row2 = $resultado2->fetch_assoc();
                     $nombreCompletoProfeCurso = $row2['nombre']." ".$row2['apellidoPaterno']." ".$row2['apellidoMaterno'];
             ?>
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-2">
                         <img src="<?php echo $row['portadaC'] ?>" class="w-100" alt="">     
                     </div>               
