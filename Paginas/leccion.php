@@ -12,16 +12,19 @@
 
 <?php include('../navbar.php'); ?>
 |   <main class="contenido container">
-        <div class="contenedor-leccion mb-4">
-            <div class="contenido-leccion w-100 border border-secondary" style="height: 70vh;">
+        <div class="contenedor-leccion mb-2">
+            <div class="contenedor-botones-leccion btn-group d-flex justify-content-between mb-3">
+                <button class="btn btn-lg borde-secundario">Anterior</button>
+                <button class="btn btn-lg borde-terciario">Enviar mensaje al profesor</button>
+                <button class="btn btn-lg borde-secundario">Siguiente</button>
+            </div>
+            <div class="contenido-leccion w-100 border border-secondary mb-4" style="height: 60vh;">
                 <!-- si es video -->
                 <video class="w-100 h-100" src="" controls></video>
             </div>
+            <div class="descripcion-contenido-leccion">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio possimus deserunt eum blanditiis pariatur praesentium perferendis ea fugit itaque iusto dolor, quaerat magnam tempore labore quos ut unde? Magni, dicta.</p>
         </div>
-        <div class="contenedor-botones-leccion d-flex justify-content-between">
-            <button class="btn btn-lg boton-secundario">Anterior</button>
-            <button class="btn btn-lg boton-terciario">Enviar mensaje al profesor</button>
-            <button class="btn btn-lg boton-secundario">Siguiente</button>
         </div>
     </main>
 <?php include ('../footer.php'); ?>
