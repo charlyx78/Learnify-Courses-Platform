@@ -148,25 +148,49 @@
 
             <div class="col-md-9 col-12">
                 <div class="accordion mb-3" id="panelsStayOpen-accordionModulos">
+            <?php 
+            $query3 = "select * from modulos where FK_IDC = $cursoSelecionado";
+            $resultado3 = mysqli_query($con, $query3);
+            if ($resultado3)
+            {
+                while($row = $resultado3->fetch_array())
+                {
+                    $ModuloID = $row['IDM'];
+                    $ModuloNombre = $row['nombreM'];
+            ?>
                     <div class="accordion-item">
                         <h4 class="accordion-header" id="panelsStayOpen-heading1">
                             <button class="accordion-button fw-bold leccion d-flex justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
-                                Módulo
+                            <?php echo $ModuloNombre ?>
                             </button>
                         </h4>
                         <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
+                        <?php 
+                                $query4 = "select * from lecciones where FK_IDM = $ModuloID";
+                                $resultado4 = mysqli_query($con, $query4);
+                                if ($resultado4)
+                                {
+                                    while($row = $resultado4->fetch_array())
+                                                    {
+                                        $LeccionID = $row['IDL'];
+                                        $LeccionNombre = $row['nombreL'];
+                        ?>
                             <div class="accordion-body p-0">
                                 <ul class="list-group list-group-flush">
-                                    <a href="#" class="list-group-item list-group-item-action leccion" data-bs-toggle="modal" data-bs-target="#leccionModal">
-                                        Leccion
+                                    <div class="list-group-item list-group-item-action leccion" data-bs-toggle="modal" data-bs-target="#leccionModal">
+                                        <?php echo $LeccionNombre ?>
                                         <div class="formatos-leccion">
-                                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                            <a href="../Programa/eliminarLeccion.php?idLeccionEliminar=<?php echo $LeccionID ?>" class="btn btn-danger" >Eliminar</a>
                                         </div>
-                                    </a>
+                                        </div>
                                 </ul>
                             </div>
+                        <?php } } ?>
                         </div>
                     </div>
+
+                    <?php } } ?>
+
                 </div>
             </div>
         </div>

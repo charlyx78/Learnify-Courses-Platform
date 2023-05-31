@@ -10,7 +10,48 @@
 </head>
 <body>
 
-<?php include('../navbar.php'); ?>
+<?php include('../navbar.php'); 
+include("../Programa/db.php");
+$idLeccion = $_GET["idLeccionSel"];
+$correoUsuarioPasado = $_SESSION['correo'];
+
+$query = "select nombreL, FK_IDM from lecciones where IDL = $idLeccion";
+$resultado = mysqli_query($con, $query);
+if($resultado)
+{
+    $row = $resultado->fetch_assoc();
+    $nombreLeccion = $row['nombreL'];
+    $idModulo = $row['FK_IDM'];
+
+    $query2 = "select FK_IDC from modulos where IDM = $idModulo";
+    $resultado2 = mysqli_query($con, $query2);
+    if($resultado2)
+    {
+        $row2 = $resultado2->fetch_assoc();
+        $idCurso = $row2['FK_IDC'];
+
+        $query3 = "select FK_IDU from cursos_comprados where FK_IDC = $idCurso";
+        $resultado3 = mysqli_query($con, $query3);
+        if($resultado3->num_rows > 0)
+        {
+            $row3 = $resultado3->fetch_assoc();
+            $correoComprado = $row3['FK_IDU'];
+            if($correoComprado == $correoUsuarioPasado)
+            {
+            }
+            else
+            {
+                header("Location: ../Paginas/curso.php?idCursoSel=$idCurso");
+            }
+        }
+        else
+        {
+            header("Location: ../Paginas/curso.php?idCursoSel=$idCurso");
+        }
+    }
+}
+
+?>
 |   <main class="contenido container">
         <div class="contenedor-leccion mb-2">
             <div class="contenedor-botones-leccion btn-group d-flex justify-content-between mb-3">
@@ -23,7 +64,7 @@
                 <video class="w-100 h-100" src="" controls></video>
             </div>
             <div class="descripcion-contenido-leccion">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio possimus deserunt eum blanditiis pariatur praesentium perferendis ea fugit itaque iusto dolor, quaerat magnam tempore labore quos ut unde? Magni, dicta.</p>
+            <p> <?php echo $nombreLeccion ?> Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio possimus deserunt eum blanditiis pariatur praesentium perferendis ea fugit itaque iusto dolor, quaerat magnam tempore labore quos ut unde? Magni, dicta.</p>
         </div>
         </div>
     </main>
