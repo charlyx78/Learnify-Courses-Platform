@@ -135,8 +135,11 @@
                                             if ($vistaVistas >= $contadorVistas)
                                             {
                                             ?>
-                                            <button type="button" class="btn boton-secundario mt-3" data-bs-toggle="modal" data-bs-target="#comentarioModal" style="z-index: 40;">Calificar curso</button>
-                                            <?php 
+                                                <button type="button" class="btn boton-secundario mt-3" data-bs-toggle="modal" data-bs-target="#comentarioModal" style="z-index: 40;">Calificar curso</button>
+                                            <?php
+                                                $fechaActual = date('Y-m-d');
+                                                $query6 = "UPDATE cursos_comprados SET fechaFinalizacion = '$fechaActual', terminado = 1 WHERE FK_IDC = '$cursoSelecionado' AND fechaFinalizacion IS NULL ";
+                                                $result6 = mysqli_query($con, $query6);
                                             }
                                             ?>
                                         </ul>
