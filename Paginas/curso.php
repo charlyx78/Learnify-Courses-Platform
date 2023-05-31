@@ -8,7 +8,8 @@
     <title>Titulo del curso - Learnify</title>
 </head>
 <body>
-    <script src="https://www.paypal.com/sdk/js?client-id=Ac8wuw0EY67Aws6Qp16ir-ZYJqrbHPIgNY47p6Nf2liE8ae3RaC8Sp-Ttgs9lUgN-Yk0qsXS25EwomSx&currency=MXN"></script>
+    <!-- Replace "test" with your own sandbox Business account app client ID -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AfPOK7hP6lz-PxqwfLDqnmdppQeLU7Fh1U_ivNEX0AQuE-DZP4fLGRhTCSUbD4-JkvDqg6oZtq-gOz7W&currency=MXN"></script>
 
     <?php include('../navbar.php');         
     $cursoSelecionado = $_GET["idCursoSel"] ;
@@ -154,7 +155,7 @@
                                         $LeccionID = $row['IDL'];
                                         $LeccionNombre = $row['nombreL'];
                                 ?>
-                                    <a href="leccion.php" class="list-group-item list-group-item-action leccion">
+                                    <a href="leccion.php?idLeccionSel=<?php echo $LeccionID ?>" class="list-group-item list-group-item-action leccion">
                                     <?php echo $LeccionNombre ?>
                                         <div class="formatos-leccion">
                                             <i class="bi bi-camera-video-fill text-secondary"></i>
@@ -200,6 +201,7 @@
                         <i class="bi bi-caret-right-fill"></i>
                     </button>
                 </div>
+                <a href="../Programa/ComyCal.php?idCursoSel=<?php echo $CursoID ?>" class="btn boton-secundario h-100 d-flex align-items-center">Calificar y Comentar</a>
             </div>
         </div>
             
@@ -245,23 +247,43 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: 100
+                            value: <?php echo $CursoPrecio ?>
                         }
                     }]
                 });
             },
             onApprove: function(data,actions) {
-                actions.order.capture().then(function(detalles){
-                    //codigo al concretar la coompra
+                actions.order.capture().then(function(orderData){
+                    alert('Pago Realizado')
+                    console.log("Pago?")
                 });
             },
             onCancel: function(data) {
-                alert('Pago cancelado');
-                console.log(data);
+                alert('Pago cancelado')
+                console.log(data)
             }
         }).render('#paypal-button-container-sm');
 
-        paypal.Buttons().render('#paypal-button-container-lg')
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: <?php echo $CursoPrecio ?>
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data,actions) {
+                actions.order.capture().then(function(orderData){
+                    window.location.href="../Programa/comprarCurso.php?idCursoComprar=<?php echo $CursoID ?>"
+                });
+            },
+            onCancel: function(data) {
+                alert('Pago cancelado')
+                console.log(data)
+            }
+        }).render('#paypal-button-container-lg')
     </script>
 
 </body>

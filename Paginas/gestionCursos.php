@@ -59,7 +59,7 @@
                     <div class="col-2">
                         <div class="h-100 d-flex justify-content-end gap-2">
                             <a href="registroCurso.php?idCursoSel=<?php echo $CursoID ?>" class="btn boton-secundario h-100 d-flex align-items-center"><i class="bi bi-pencil-fill"></i></a>
-                            <button class="btn btn-danger h-100" style="width:50px;"><i class="bi bi-trash3-fill"></i></button>
+                            <a href="../Programa/eliminarCurso.php?idCursoEliminar=<?php echo $CursoID ?>" class="btn btn-danger bi bi-trash3-fill" style="width:50px;"></a>
                         </div>
                     </div>
                 </div>
