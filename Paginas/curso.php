@@ -108,6 +108,8 @@
                                                 <i class="bi bi-filetype-pdf text-secondary me-2"></i>
                                                 1 PDF
                                             </li>
+                                            <button type="button" class="btn boton-secundario mt-3" data-bs-toggle="modal" data-bs-target="#comentarioModal" style="z-index: 40;">Calificar curso</button>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -204,6 +206,35 @@
 
     </div>
 </main>
+
+<div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="comentarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="comentarioModalLabel">Califica este curso</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                        <label for="txtComentario" class="form-label">Comentario</label>
+                        <textarea name="txtComentario" class="form-control" id="" cols="30" rows="10"></textarea>
+                        <label for="selectCalificacion" class="form-label">Calificación</label>
+                        <select name="selectCalificacion" id="" class="form-select">
+                            <option selected value="1">1</option>
+                            <option selected value="2">2</option>
+                            <option selected value="3">3</option>
+                            <option selected value="4">4</option>
+                            <option selected value="5">5</option>
+                        </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <input type="submit" class="btn boton-secundario" name="btnRegistroM" id="btnRegistroM" value="Calificar">
+                    </form>  
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php include ('../footer.php'); ?>
     <script src="../script.js"></script>
