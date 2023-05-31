@@ -9,30 +9,41 @@
 </head>
 <body>
 
-    <?php include('../navbar.php'); ?>
+    <?php include('../navbar.php'); 
+            include("../Programa/db.php"); ?>
 
     <main class="container-sm contenido">
         <h3 class="mb-4">Mensajes</h3>
         <div class="usuarios-mensajes">
+        <?php 
+                $query = "select * from usuarios";
+                $resultado = mysqli_query($con, $query);
+                    if ($resultado)
+                    { 
+                        while($row = $resultado->fetch_array())
+                        {
+                            $UsuarioID = $row['id'];
+                            $UsuarioNombre = $row['nombre'] ." ". $row['apellidoPaterno'];
+            ?>
             <ul class="list-group">
-                <a class="list-group-item" href="mensajesChat.php">
-                    <div class="row">
-                        <div class="col-2 col-lg-1 avatar-mensaje"><img src="../Imagenes/avatar.svg" class="rounded-circle" width="45" height="45" alt="Avatar"></div>
-                        <div class="col-10 col-lg-11">
-                            <div class="d-flex justify-content-between align-items-end mb-1">
-                                <h6 class="m-0">charlyx78</h6>
-                                <p class="m-0 text-secondary">01/03/2023</p>
+                <a class="list-group-item mb-2 py-3" href="mensajesChat.php?toUser=<?php echo $UsuarioID?>">
+                    <div class="row align-items-center">
+                        <div class="col-2 col-lg-1 avatar-mensaje">
+                            <img src="../Imagenes/avatar.svg" class="rounded-circle" width="45" height="45" alt="Avatar">
+                        </div>
+                        <div class="col-10 col-lg-11"> 
+                            <div class="d-flex align-items-center">
+                                <h6 class="m-0"> <?php echo $UsuarioNombre?> </h6>
                             </div>
-                            <p class="m-0 text-secondary d-flex justify-content-between align-items-center">
-                                Mensaje preview
-                                <span class="badge bg-danger">1</span>
-                            </p>
                         </div>
                     </div>
                 </a>
             </ul>
+        <?php }}  ?>
         </div>
     </main>
+
+
 
     <?php include ('../footer.php'); ?>
     <script src="../script.js"></script>
