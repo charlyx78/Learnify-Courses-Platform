@@ -38,6 +38,8 @@ if($resultado)
             $correoComprado = $row3['FK_IDU'];
             if($correoComprado == $correoUsuarioPasado)
             {
+                $query56 = "update leccionvista set Vista = 1 where FK_Leccion = $idLeccion";
+                $resultado56 = mysqli_query($con, $query56);
             }
             else
             {

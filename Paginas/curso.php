@@ -11,9 +11,10 @@
     <!-- Replace "test" with your own sandbox Business account app client ID -->
     <script src="https://www.paypal.com/sdk/js?client-id=AfPOK7hP6lz-PxqwfLDqnmdppQeLU7Fh1U_ivNEX0AQuE-DZP4fLGRhTCSUbD4-JkvDqg6oZtq-gOz7W&currency=MXN"></script>
 
-    <?php include('../navbar.php');         
-    $cursoSelecionado = $_GET["idCursoSel"] ;
+    <?php include('../navbar.php');     
+    $cursoSelecionado = $_GET["idCursoSel"];
     include("../Programa/db.php");
+    include('../Programa/ComyCal.php'); 
     $query = "select * from cursos where IDC = $cursoSelecionado";
     $resultado = mysqli_query($con, $query);
     if ($resultado)
@@ -109,8 +110,35 @@
                                                 <i class="bi bi-filetype-pdf text-secondary me-2"></i>
                                                 1 PDF
                                             </li>
-                                            <button type="button" class="btn boton-secundario mt-3" data-bs-toggle="modal" data-bs-target="#comentarioModal" style="z-index: 40;">Calificar curso</button>
 
+                                            <?php
+                                            $contadorVistas = 0;
+                                            $vistaVistas = 0;
+                                            $query4 = "select Vista from leccionvista where FK_Curso = $cursoSelecionado AND FK_User = '$correo'";
+                                            $result4= mysqli_query($con, $query4);
+                                            if($result4)
+                                            {
+                                                while($row4 = $result4->fetch_array())
+                                                {
+                                                    $contadorVistas = $contadorVistas + 1;
+                                                }
+                                            }
+                                            
+                                            $query5 = "select SUM(Vista) as sum from leccionvista where FK_Curso = $cursoSelecionado AND FK_User = '$correo'";
+                                            $result5= mysqli_query($con, $query5);
+                                            if($result5)
+                                            {
+                                                $row5 = $result5->fetch_array();
+                                                $vistaVistas = $row5['sum'];
+                                            }
+
+                                            if ($vistaVistas >= $contadorVistas)
+                                            {
+                                            ?>
+                                            <button type="button" class="btn boton-secundario mt-3" data-bs-toggle="modal" data-bs-target="#comentarioModal" style="z-index: 40;">Calificar curso</button>
+                                            <?php 
+                                            }
+                                            ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -173,14 +201,25 @@
             <h4 class="fw-bold mb-3">Calificaciones</h4>
             <div id="carouselTestimonialesCurso" class="carousel slide testimoniales mb-5 py-5 rounded" data-bs-ride="carousel">
                 <div class="carousel-inner">
+                <?php 
+                $query21 = "select * from comcal where FK_IDC = $cursoSelecionado";
+                $resultado21 = mysqli_query($con, $query21);
+                if ($resultado21)
+                {
+                    while($row21 = $resultado21->fetch_array())
+                    {
+                        $usuario = $row21['FK_IDU'];
+                        $comentario = $row21['Comentario'];
+                        $calif = $row21['Calificación'];
+                ?>
                     <div class="carousel-item active px-3">
                         <div class="row gap-2 d-flex justify-content-center">
                             <div class="col-12 col-md-3">
                                 <div class="card shadow-lg testimonial rounded-0 border-0">
                                     <div class="card-body row">
-                                        <h5 class="card-title col-12">Nombre del usuario</h5>
-                                        <h6 class="col-12 calificacion-testimonial mb-3"><i class="bi bi-star-fill me-2"></i>4.5</h6>
-                                        <p class="card-text texto-testimonial">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit accusamus quas est quae labore, delectus fugit iste cum deleniti dignissimos. Incidunt eius perferendis et blanditiis facilis accusamus quam architecto vitae!</p>
+                                        <h5 class="card-title col-12"><?php echo $usuario ?></h5>
+                                        <h6 class="col-12 calificacion-testimonial mb-3"><i class="bi bi-star-fill me-2"></i><?php echo $calif ?></h6>
+                                        <p class="card-text texto-testimonial"><?php echo $comentario ?></p>
                                     </div>
                                     <div class="card-footer bg-transparent border-0">
                                         <p class="m-0 text-secondary text-end">21/12/2022</p>
@@ -191,7 +230,8 @@
                                 </div>
                             </div>              
                         </div>
-                    </div>                        
+                    </div>  
+                <?php }}?>
                 </div>
                 <div class="d-flex justify-content-center mt-4">
                     <button class="btn boton-secundario me-2" type="button" data-bs-target="#carouselTestimonialesCurso" data-bs-slide="prev">
@@ -201,7 +241,6 @@
                         <i class="bi bi-caret-right-fill"></i>
                     </button>
                 </div>
-                <a href="../Programa/ComyCal.php?idCursoSel=<?php echo $CursoID ?>" class="btn boton-secundario h-100 d-flex align-items-center">Calificar y Comentar</a>
             </div>
         </div>
             
@@ -231,6 +270,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <?php $_SESSION['ultimoCursoVisitado'] = $cursoSelecionado; ?>
                     <input type="submit" class="btn boton-secundario" name="btnRegistroM" id="btnRegistroM" value="Calificar">
                     </form>  
                 </div>
