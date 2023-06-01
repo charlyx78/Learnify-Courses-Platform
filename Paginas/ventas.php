@@ -17,7 +17,7 @@
 
     <main class="container contenido mt-4">
 
-    <div id="carouselVentas" class="carousel slide" data-bs-ride="carousel" pause>
+    <div id="carouselVentas" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <h2 class="mb-4">Tus cursos</h2>
@@ -37,6 +37,18 @@
                                     <label for="selectCategoria" class="form-label">Categoría</label>
                                     <select name="" id="" class="form-select mb-3">
                                         <option value="">Todos los cursos</option>
+                                        <?php 
+                                            include("../Programa/db.php");
+                                            $query500 = "SELECT * FROM categorias";
+                                            $resultado500 = mysqli_query($con, $query500);
+                                            if ($resultado500)
+                                            {
+                                                while($row = $resultado500->fetch_array())
+                                                {
+                                                    echo '<option value=" '.$row['idCat'].' "> '.$row['nombreCat'].' </option>';
+                                                }
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="col-6 d-flex align-items-end">

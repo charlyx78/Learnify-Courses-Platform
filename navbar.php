@@ -32,10 +32,7 @@
 <!-- OPCIONES NAVBAR ADMIN -->
                 <?php if ($_SESSION['tipoCuenta'] == 2) { ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="kardex.php">Administrar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="reportes.php">Reportes</a>
+                    <a class="nav-link" href="categorias.php">Categorias</a>
                 </li>
                 <?php }?>
             </ul>

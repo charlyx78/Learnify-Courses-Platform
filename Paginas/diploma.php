@@ -39,7 +39,7 @@
 
         <?php
             $query = "select * from cursos_comprados cc inner join cursos c on cc.FK_IDC=c.IDC 
-                        where C.IDC = $cursoSelecionado and CC.FK_IDU='$correoSesion'";
+                        where C.IDC = $cursoSelecionado and CC.FK_IDU='$correoSesion' limit 1";
             $resultado = mysqli_query($con, $query);
             if ($resultado)
             {

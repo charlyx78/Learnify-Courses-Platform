@@ -54,6 +54,18 @@
                 <label for="categoriaCurso">Categoría</label>
                     <select name="categoriaCurso" class="form-control">
                         <option value="">Selecciona una categoría</option>
+                        <?php 
+                            include("../Programa/db.php");
+                            $query500 = "SELECT * FROM categorias";
+                            $resultado500 = mysqli_query($con, $query500);
+                            if ($resultado500)
+                            {
+                                while($row = $resultado500->fetch_array())
+                                {
+                                    echo '<option value=" '.$row['nombreCat'].' "> '.$row['nombreCat'].' </option>';
+                                }
+                            }
+                        ?>
                     </select>
                 </div>
                 <div class="col-12 col-lg-2">

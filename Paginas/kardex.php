@@ -44,7 +44,18 @@
                         <div class="col-12 col-lg-3">
                             <select class="form-select" name="selectCategoria" aria-label="Default select example">
                                 <option value="" selected>Categoría</option>
-                                <option value="CSS">CSS</option>
+                                <?php 
+                                    include("../Programa/db.php");
+                                    $query500 = "SELECT * FROM categorias";
+                                    $resultado500 = mysqli_query($con, $query500);
+                                    if ($resultado500)
+                                    {
+                                        while($row = $resultado500->fetch_array())
+                                        {
+                                            echo '<option value=" '.$row['nombreCat'].' "> '.$row['nombreCat'].' </option>';
+                                        }
+                                    }
+                                ?>
                             </select>
                         </div>
                         <div class="col-6 col-lg-3">
