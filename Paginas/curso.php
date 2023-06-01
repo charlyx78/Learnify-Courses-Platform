@@ -210,16 +210,17 @@
                 $resultado21 = mysqli_query($con, $query21);
                 if ($resultado21)
                 {
+                    $i=0;
                     while($row21 = $resultado21->fetch_array())
                     {
                         $usuario = $row21['FK_IDU'];
                         $comentario = $row21['Comentario'];
                         $calif = $row21['Calificación'];
                 ?>
-                    <div class="carousel-item active px-3">
+                    <div class="carousel-item <?php if($i==0) echo 'active'; ?> px-3">
                         <div class="row gap-2 d-flex justify-content-center">
                             <div class="col-12 col-md-3">
-                                <div class="card shadow-lg testimonial rounded-0 border-0">
+                                <div class="card shadow-sm testimonial rounded-0 border-0">
                                     <div class="card-body row">
                                         <h5 class="card-title col-12"><?php echo $usuario ?></h5>
                                         <h6 class="col-12 calificacion-testimonial mb-3"><i class="bi bi-star-fill me-2"></i><?php echo $calif ?></h6>
@@ -235,7 +236,7 @@
                             </div>              
                         </div>
                     </div>  
-                <?php }}?>
+                <?php $i++;}}?>
                 </div>
                 <div class="d-flex justify-content-center mt-4">
                     <button class="btn boton-secundario me-2" type="button" data-bs-target="#carouselTestimonialesCurso" data-bs-slide="prev">

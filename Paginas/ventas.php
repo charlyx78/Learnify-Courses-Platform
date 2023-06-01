@@ -107,25 +107,7 @@
 
 
                 </div>
-                <div class="d-flex justify-content-end">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+
             </div>
             <div class="carousel-item">
                 <h2 class="mb-4">Alumnos inscritos</h2>
@@ -138,7 +120,7 @@
                             <th>Precio pagado</th>
                             <th>Método de pago</th>
                         </thead>
-                        <tbody id="usuariosTabla" class="table-success">
+                        <tbody id="usuariosTabla">
                         <td>Juan</td>
                         <td>10/10/2010</td>
                         <td>50 %</td>
@@ -151,25 +133,7 @@
                     <div class="">
                         <button class="btn boton-terciario" data-bs-target="#carouselVentas" data-bs-slide-to="0">Volver a cursos</button>
                     </div>
-                    <div class="">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+
                 </div>
             </div>
         </div>
