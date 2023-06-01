@@ -101,16 +101,39 @@
                         echo '<h4 class="mb-4"> Resultados para búsqueda avanzada </h4>';
                         $query = "SELECT * FROM cursos_comprados CC
                                   INNER JOIN cursos C ON C.IDC = CC.FK_IDC
-                                  WHERE CC.fechaCompra BETWEEN '$fechaDesde' AND '$fechaHasta' 
-                                  OR C.categoriaC = '$categoria' OR terminado = 1 ";
+                                  WHERE terminado = 1 ";
+                        if(!empty($fechaDesde) && !empty($fechaHasta)){
+                            $query .= "AND CC.fechaCompra BETWEEN '$fechaDesde' AND '$fechaHasta' ";
+                        }
+                        if(!empty($categoria)){
+                            $query .= "AND C.categoriaC = '$categoria'";
+                        }
                     }
                     else if(isset($_GET['cursosIncompletos']))
                     {
                         echo '<h4 class="mb-4"> Resultados para búsqueda avanzada </h4>';
                         $query = "SELECT * FROM cursos_comprados CC
                                   INNER JOIN cursos C ON C.IDC = CC.FK_IDC
-                                  WHERE CC.fechaCompra BETWEEN '$fechaDesde' AND '$fechaHasta' 
-                                  OR C.categoriaC = '$categoria' OR terminado = 0 ";
+                                  WHERE terminado = 0 ";
+                        if(!empty($fechaDesde) && !empty($fechaHasta)){
+                            $query .= "AND CC.fechaCompra BETWEEN '$fechaDesde' AND '$fechaHasta' ";
+                        }
+                        if(!empty($categoria)){
+                            $query .= "AND C.categoriaC = '$categoria'";
+                        }
+                    }
+                    else 
+                    {
+                        echo '<h4 class="mb-4"> Resultados para búsqueda avanzada </h4>';
+                        $query = "SELECT * FROM cursos_comprados CC
+                                  INNER JOIN cursos C ON C.IDC = CC.FK_IDC
+                                  WHERE 1=1";
+                        if(!empty($fechaDesde) && !empty($fechaHasta)){
+                            $query .= "AND CC.fechaCompra BETWEEN '$fechaDesde' AND '$fechaHasta' ";
+                        }
+                        if(!empty($categoria)){
+                            $query .= "AND C.categoriaC = '$categoria'";
+                        }
                     }
                 }
                 else {
@@ -125,13 +148,17 @@
                     while($row = $resultado->fetch_array())
                     {
                         $idCurso = $row['IDC'];
-                        $queryProgreso = "SELECT ((COUNT(CASE WHEN LV.Vista = 1 THEN 1 ELSE NULL END) / COUNT(*)) * 100) AS 'Porcentaje',
-                                            COUNT(CASE WHEN LV.Vista = 1 THEN 1 ELSE NULL END) AS 'Lecciones vistas',
-                                            COUNT(*) AS 'Lecciones totales'
-                                            FROM leccionVista LV
-                                            LEFT JOIN lecciones L ON LV.FK_Leccion = L.IDL
-                                            WHERE LV.FK_Curso = '$idCurso' ";
+                        $correoUsuario = $_SESSION['correo'];
+
+                        $queryProgreso = "SELECT ((COUNT(CASE WHEN LV.Vista = 1 AND LV.FK_User = '$correoUsuario' THEN 1 ELSE NULL END) / COUNT(CASE WHEN LV.FK_User = '$correoUsuario' THEN 1 ELSE NULL END)) * 100) AS 'Porcentaje',
+                        COUNT(CASE WHEN LV.Vista = 1 AND LV.FK_User = '$correoUsuario' THEN 1 ELSE NULL END) AS 'Lecciones vistas',
+                        COUNT(CASE WHEN LV.FK_User = '$correoUsuario' THEN 1 ELSE NULL END) AS 'Lecciones totales'
+                        FROM leccionVista LV
+                        LEFT JOIN lecciones L ON LV.FK_Leccion = L.IDL
+                        WHERE LV.FK_Curso = '$idCurso'";
+
                         $resultadoProgreso = mysqli_query($con, $queryProgreso);
+
                         if ($rowProgreso = $resultadoProgreso->fetch_assoc()) {
                             $porcentaje = $rowProgreso['Porcentaje'];
                             $leccionesVistas = $rowProgreso['Lecciones vistas'];

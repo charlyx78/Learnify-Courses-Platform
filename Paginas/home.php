@@ -21,14 +21,14 @@
                 <div class="col-12 col-lg-8">
                     <h2>Has vuelto, <?php echo $inciado;?>!</h2>
                     <h4 class="mb-3">¿Qué quieres aprender hoy?</h4> 
-                    <form action="">
+                    <form method="GET">
                         <div class="row">
                             <div class="col-12 col-lg-7 mb-3 d-flex">
-                                <input type="text" name="txtBusquedaCurso" class="form-control position-relative">
-                                <button type="submit" class="btn boton-terciario position-absolute rounded-start" id="btnVerCursos"><i class="bi bi-search"></i></button>
+                                <input type="text" name="txtBusquedaCurso" class="form-control position-relative ps-5">
+                                <button type="submit" name="busqueda" class="btn boton-terciario position-absolute rounded-start" id="btnVerCursos"><i class="bi bi-search"></i></button>
                             </div>
                             <div class="col-12 col-lg-4">
-                                <button type="submit" class="btn boton-terciario w-100" id="btnBusqAvan">Búsqueda avanzada</button>
+                                <button type="button" class="btn boton-terciario w-100" id="btnBusqAvan">Búsqueda avanzada</button>
                             </div>
                         </div>
                     </form>
@@ -44,7 +44,7 @@
 
 <!-- BUSCADOR -->
     <section class="buscador-cursos bg-light rounded-bottom border mb-5 px-4 py-4" style="display:none;">
-        <form action="">
+        <form method="GET">
             <div class="row">
                 <div class="col-6 col-lg-3">
                     <label for="nombreCurso">Nombre del curso</label>
@@ -57,8 +57,8 @@
                     </select>
                 </div>
                 <div class="col-12 col-lg-2">
-                    <label for="nombreCurso">Nombre del profesor</label>
-                    <input type="text" name="nombreCurso" class="form-control">
+                    <label for="nombreProfesor">Nombre del profesor</label>
+                    <input type="text" name="nombreProfesor" class="form-control">
                 </div>
                 <div class="col-6 col-lg-2">
                     <label for="inicioRangoFechaCurso">Desde</label>
@@ -69,7 +69,7 @@
                     <input type="date" name="finRangoFechaCurso" class="form-control">
                 </div>
                 <div class="col-lg-12">
-                    <button type="submit" class="btn boton-terciario w-100">Buscar</button>
+                    <button type="submit" name="busquedaAvanzada" class="btn boton-terciario w-100">Buscar</button>
                 </div>
             </div>
         </form>
@@ -81,7 +81,44 @@
         <div class="row">
             <?php 
             include("../Programa/db.php");
-            $query = "select * from cursos";
+
+            if(isset($_GET['busqueda']))
+            {
+                $nombre = $_GET['txtBusquedaCurso'];
+                $query = "SELECT * FROM cursos WHERE nombreC LIKE '%" . $nombre . "' ";
+            }
+            else if(isset($_GET['busquedaAvanzada']))
+            {
+                $nombre = $_GET['nombreCurso'];
+                $categoria = $_GET['categoriaCurso'];
+                $profesor = $_GET['nombreProfesor'];
+                $rangoInicio = $_GET['inicioRangoFechaCurso'];
+                $rangoFinal = $_GET['finRangoFechaCurso'];
+
+                $query = "SELECT * FROM cursos C
+                INNER JOIN usuarios U ON C.profesorC = U.id
+                WHERE 1 = 1"; 
+            
+                if (!empty($nombre)) {
+                    $query .= " AND C.nombreC LIKE '%" . $nombre . "%'";
+                }
+                
+                if (!empty($categoria)) {
+                    $query .= " AND C.categoriaC = '$categoria'";
+                }
+                
+                if (!empty($profesor)) {
+                    $query .= " AND CONCAT(U.nombre, ' ', U.apellidoPaterno, ' ', U.apellidoMaterno) LIKE '%" . $profesor . "%'";
+                }
+                
+                if (!empty($rangoInicio) && !empty($rangoFinal)) {
+                    $query .= " AND C.fechaRegistroC BETWEEN '$rangoInicio' AND '$rangoFinal'";
+                }
+            }
+            else {
+                $query = "select * from cursos";
+            }
+
             $resultado = mysqli_query($con, $query);
             if ($resultado)
             {
@@ -93,6 +130,7 @@
                     $CursoPrecio = $row['precioC'];
                     $CursoPortada = $row['portadaC'];
                     $CursoVideo = $row['videoC'];
+                    $CursoCalificacion = round($row['califC'],1);
 
                     $CursoProfe = $row['profesorC'];
                     $query2 = "select nombre, apellidoPaterno, apellidoMaterno from usuarios where id = $CursoProfe";
@@ -116,7 +154,7 @@
                                         title="Modelo de administracion de datos (SQL Server)"><?php echo $CursoNombre ?></h5>
                                         <div class="d-flex justify-content-between align-items-center text-secondary fw-medium">
                                             <p class="m-0"><?php echo $nombreCompletoProfeCurso ?></p>
-                                            <p class="m-0"><i class="bi bi-star-fill me-2 color-star"></i>4.5 (16,298)</p>
+                                            <p class="m-0"><i class="bi bi-star-fill me-2 color-star"></i><?php echo $CursoCalificacion?></p>
                                         </div>
 
                                         <h6 class="m-0 fs-3" style="font-size: 1.4em;">$<?php echo $CursoPrecio ?></h6>
