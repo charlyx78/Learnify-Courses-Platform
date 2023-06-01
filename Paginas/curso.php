@@ -136,7 +136,7 @@
                                             {
                                             ?>
                                                 <button type="button" class="btn boton-secundario mt-3" data-bs-toggle="modal" data-bs-target="#comentarioModal" style="z-index: 40;">Calificar curso</button>
-                                                <a href="" class="btn boton-secundario">Descargar diploma</a>
+                                                <a href="diploma.php?idCursoSel=<?php echo $CursoID ?>" class="btn boton-secundario">Descargar diploma</a>
                                             <?php
                                                 $fechaActual = date('Y-m-d');
                                                 $query6 = "UPDATE cursos_comprados SET fechaFinalizacion = '$fechaActual', terminado = 1 WHERE FK_IDC = '$cursoSelecionado' AND fechaFinalizacion IS NULL ";
