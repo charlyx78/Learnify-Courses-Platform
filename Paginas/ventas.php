@@ -62,21 +62,27 @@
                             include("../Programa/db.php");
                             $idProfesor = $_SESSION['id'];
                             $query = "SELECT 
-                                        nombreC 
-                                    FROM cursos
-                                    WHERE profesorC = '$idProfesor'";
+                                        C.nombreC,
+                                        COUNT(CASE WHEN CC.FK_IDC = C.IDC THEN 1 ELSE NULL END) AS 'Alumnos inscritos',
+                                        ( (COUNT(CASE WHEN LV.Vista = 1 THEN 1 ELSE NULL END)) / COUNT(*) * 100) AS 'Porcentaje',
+                                        (COUNT(CASE WHEN CC.FK_IDC = C.IDC THEN 1 ELSE NULL END) * C.precioC) AS 'Venta'
+                                    FROM cursos C 
+                                    INNER JOIN cursos_comprados CC ON C.IDC = CC.FK_IDC
+                                    LEFT JOIN leccionVista LV ON LV.FK_Curso = CC.FK_IDC
+                                    WHERE C.profesorC = '$idProfesor'
+                                    GROUP BY C.nombreC";
 
                             $resultado = mysqli_query($con, $query);
                             if ($resultado)
                             {
                                 while($row = $resultado->fetch_array())
                                 {
-                                    echo '
-                                        <tr>
+                                    $porcentaje = round($row['Porcentaje'],1);
+                                    echo '<tr>
                                             <td>'.$row['nombreC'].'</td>
-                                            <td>15489</td>
-                                            <td>56%</td>
-                                            <td>$4646000</td>
+                                            <td>'.$row['Alumnos inscritos'].'</td>
+                                            <td>'.$porcentaje.'%</td>
+                                            <td>$'.$row['Venta'].'</td>
                                             <td><button type="button" class="btn borde-secundario" data-bs-target="#carouselVentas" data-bs-slide-to="1">Ver alumnos inscritos</button></td>
                                         </tr>';
                                 }
