@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learnify - Perfil</title>
@@ -9,7 +10,10 @@
 </head>
 <body>
 
-    <?php include('../navbar.php'); ?>
+    <?php include('../navbar.php'); 
+    include('../Programa/db.php');
+    $varTest = 0;
+    ?>
 
     <main class="container contenido mt-4">
 
@@ -56,13 +60,32 @@
                             <th>Ingresos totales</th>
                             <th></th>
                         </thead>
+                        <?php 
+                            $query = "select FK_IDC from cursos_comprados GROUP BY FK_IDC";
+                            $resultado = mysqli_query($con, $query);
+                            if ($resultado->num_rows > 0)
+                            while($row = $resultado->fetch_array())
+                            {
+                                $idCurso = $row['FK_IDC'];
+                                $idProfe = $_SESSION['id'];
+                                $query2 = "select * from cursos where IDC = $idCurso AND profesorC = $idProfe";
+                                $resultado2 = mysqli_query($con, $query2);
+                                if ($resultado2)
+                                {
+                                    while($row2 = $resultado2->fetch_array())
+                                    {
+                                        $nombreCurso = $row2['nombreC'];
+                                        $idCursoVista = $row2['IDC'];
+                                    
+                            ?>
                         <tr>
-                            <td>Curso de modelo de administracion de datos (SQL Server)</td>
+                            <td><?php echo $nombreCurso ?></td>
                             <td>15489</td>
                             <td>56%</td>
                             <td>$4646000</td>
-                            <td><button type="button" class="btn borde-secundario" data-bs-target="#carouselVentas" data-bs-slide-to="1">Ver alumnos inscritos</button></td>
+                            <td><button type="button" onclick=" verAlumnosInscritos(<?php echo $idCursoVista; ?>); " name="botonVerAlumnos" class="btn borde-secundario" data-bs-target="#carouselVentas" data-bs-slide-to="1">Ver alumnos inscritos</button></td>
                         </tr>
+                        <?php }}} ?>
                     </table>
                 </div>
                 <div class="d-flex justify-content-end">
@@ -96,13 +119,13 @@
                             <th>Precio pagado</th>
                             <th>Método de pago</th>
                         </thead>
-                        <tr class="table-success">
-                            <td>Samuel Castro Botello</td>
-                            <td>14/02/2023</td>
-                            <td>100%</td>
-                            <td>$350</td>
-                            <td>Paypal</td>
-                        </tr>
+                        <tbody id="usuariosTabla" class="table-success">
+                        <td>Juan</td>
+                        <td>10/10/2010</td>
+                        <td>50 %</td>
+                        <td>$350</td>
+                        <td>Paypal</td>
+                        </tbody>
                     </table>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
@@ -133,10 +156,25 @@
         </div>
     </div>
             
+    <script type="text/javascript">
+    function verAlumnosInscritos(variabletest){
+        $.ajax({
+            type: 'POST',
+            url: '../Programa/mostrarAlumnos.php',
+            data: 'idCurso='+ variabletest,
+            success:function(response){
+                console.log(response);
+                $('#usuariosTabla').html(response);
+            }
+        });
+    }
+    </script>
+
     </main>
 
     <?php include ('../footer.php'); ?>
     <script src="../script.js"></script>
     
+
 </body>
 </html>
