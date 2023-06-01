@@ -61,12 +61,13 @@
                             <th></th>
                         </thead>
                         <?php 
-                            $query = "select FK_IDC from cursos_comprados GROUP BY FK_IDC";
+                            $query = "select FK_IDC, COUNT(FK_IDC) as contador from cursos_comprados GROUP BY FK_IDC ORDER BY contador DESC";
                             $resultado = mysqli_query($con, $query);
                             if ($resultado->num_rows > 0)
                             while($row = $resultado->fetch_array())
                             {
                                 $idCurso = $row['FK_IDC'];
+                                $idContadorAlumnos = $row['contador'];
                                 $idProfe = $_SESSION['id'];
                                 $query2 = "select * from cursos where IDC = $idCurso AND profesorC = $idProfe";
                                 $resultado2 = mysqli_query($con, $query2);
@@ -75,14 +76,17 @@
                                     while($row2 = $resultado2->fetch_array())
                                     {
                                         $nombreCurso = $row2['nombreC'];
+                                        $precioCurso = $row2['precioC'];
                                         $idCursoVista = $row2['IDC'];
+
+                                        $precioTotal = $precioCurso * $idContadorAlumnos;
                                     
                             ?>
                         <tr>
                             <td><?php echo $nombreCurso ?></td>
-                            <td>15489</td>
+                            <td><?php echo $idContadorAlumnos ?> Alumnos</td>
                             <td>56%</td>
-                            <td>$4646000</td>
+                            <td>$ <?php echo $precioTotal ?></td>
                             <td><button type="button" onclick=" verAlumnosInscritos(<?php echo $idCursoVista; ?>); " name="botonVerAlumnos" class="btn borde-secundario" data-bs-target="#carouselVentas" data-bs-slide-to="1">Ver alumnos inscritos</button></td>
                         </tr>
                         <?php }}} ?>
