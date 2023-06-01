@@ -116,7 +116,7 @@
                                             $vistaVistas = 0;
                                             $query4 = "select Vista from leccionvista where FK_Curso = $cursoSelecionado AND FK_User = '$correo'";
                                             $result4= mysqli_query($con, $query4);
-                                            if($result4)
+                                            if($result4->num_rows > 0)
                                             {
                                                 while($row4 = $result4->fetch_array())
                                                 {
@@ -126,13 +126,13 @@
                                             
                                             $query5 = "select SUM(Vista) as sum from leccionvista where FK_Curso = $cursoSelecionado AND FK_User = '$correo'";
                                             $result5= mysqli_query($con, $query5);
-                                            if($result5)
+                                            if($result5->num_rows > 0)
                                             {
                                                 $row5 = $result5->fetch_array();
                                                 $vistaVistas = $row5['sum'];
                                             }
 
-                                            if ($vistaVistas >= $contadorVistas)
+                                            if ($vistaVistas >= $contadorVistas && $vistaVistas != 0)
                                             {
                                             ?>
                                                 <button type="button" class="btn boton-secundario mt-3" data-bs-toggle="modal" data-bs-target="#comentarioModal" style="z-index: 40;">Calificar curso</button>
