@@ -48,6 +48,7 @@
                 </div>
 
                 <div class="table-responsive" style="height: 600px;">
+
                     <table class="table table-light table-bordered">
                         <thead>
                             <th>Curso</th>
@@ -56,14 +57,34 @@
                             <th>Ingresos totales</th>
                             <th></th>
                         </thead>
-                        <tr>
-                            <td>Curso de modelo de administracion de datos (SQL Server)</td>
-                            <td>15489</td>
-                            <td>56%</td>
-                            <td>$4646000</td>
-                            <td><button type="button" class="btn borde-secundario" data-bs-target="#carouselVentas" data-bs-slide-to="1">Ver alumnos inscritos</button></td>
-                        </tr>
+
+                        <?php
+                            include("../Programa/db.php");
+                            $idProfesor = $_SESSION['id'];
+                            $query = "SELECT 
+                                        nombreC 
+                                    FROM cursos
+                                    WHERE profesorC = '$idProfesor'";
+
+                            $resultado = mysqli_query($con, $query);
+                            if ($resultado)
+                            {
+                                while($row = $resultado->fetch_array())
+                                {
+                                    echo '
+                                        <tr>
+                                            <td>'.$row['nombreC'].'</td>
+                                            <td>15489</td>
+                                            <td>56%</td>
+                                            <td>$4646000</td>
+                                            <td><button type="button" class="btn borde-secundario" data-bs-target="#carouselVentas" data-bs-slide-to="1">Ver alumnos inscritos</button></td>
+                                        </tr>';
+                                }
+                            }
+                        ?>                                        
                     </table>
+
+
                 </div>
                 <div class="d-flex justify-content-end">
                     <nav aria-label="Page navigation example">
