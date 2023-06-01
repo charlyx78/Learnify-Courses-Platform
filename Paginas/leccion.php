@@ -34,16 +34,19 @@ if($resultado)
         $resultado3 = mysqli_query($con, $query3);
         if($resultado3->num_rows > 0)
         {
-            $row3 = $resultado3->fetch_assoc();
-            $correoComprado = $row3['FK_IDU'];
-            if($correoComprado == $correoUsuarioPasado)
+            while($row3 = $resultado3->fetch_array())
             {
-                $query56 = "update leccionvista set Vista = 1 where FK_Leccion = $idLeccion";
-                $resultado56 = mysqli_query($con, $query56);
-            }
-            else
-            {
-                header("Location: ../Paginas/curso.php?idCursoSel=$idCurso");
+                $row3 = $resultado3->fetch_assoc();
+                $correoComprado = $row3['FK_IDU'];
+                if($correoComprado == $correoUsuarioPasado)
+                {
+                    $query56 = "update leccionvista set Vista = 1 where FK_Leccion = $idLeccion";
+                    $resultado56 = mysqli_query($con, $query56);
+                }
+                else
+                {
+                    header("Location: ../Paginas/curso.php?idCursoSel=$idCurso");
+                }
             }
         }
         else
